@@ -6,6 +6,13 @@
 ## Teamwork plan/summary
 
 <!-- [[StartTeamworkPlan]] PLEASE LEAVE THIS LINE UNTOUCHED -->
+General plan below, though this does not mean team members will be strictly working in their given areas 
+Lucas:  shading + procedural generation 
+Sebastian: sound design + Level design
+Yannick: modeling + character animation
+Jenny: character movement/interaction + AI
+
+Report to be worked on by all members, with each member writing primarily about what they worked on
 
 <!-- Fill this section by Milestone 1 (see specification for details) -->
 
