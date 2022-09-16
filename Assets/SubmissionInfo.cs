@@ -26,14 +26,17 @@ public static class SubmissionInfo
 
     // This may be a "working title" to begin with, but ensure it is final by
     // the video milestone deadline (plain text, no more than 50 chars).
-    public static readonly string GameName = "Scary Escape";
+    public static readonly string GameName = "ARMY OF THE DEAD";
 
     // Write a brief blurb of your game, no more than 200 words. Again, ensure
     // this is final by the video milestone deadline.
     public static readonly string GameBlurb = 
-@"Write a blurb of your game here in plain text. This is a
-multiline verbatim string,
-so don't worry about keeping it to one line, just be sure not to indent it.
+@"You are a lone survivor on earth, that has been overrun by highly intelligent zombies.
+You have been hiding in your shelter, but will have to move soon. This means you will have to
+fight through hordes of zombies to get to a new outpost. Luckily you are not alone. You have 
+developed the ability to split yourself in time, and your past selves can come back from the 
+dead to help you. With your special ability, you can show the zombies who the REAL army of the
+dead is.
 ";
     
     // By the gameplay video milestone deadline this should be a direct link
