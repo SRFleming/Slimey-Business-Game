@@ -6,13 +6,16 @@
 ## Teamwork plan/summary
 
 <!-- [[StartTeamworkPlan]] PLEASE LEAVE THIS LINE UNTOUCHED -->
-General plan below, though this does not mean team members will be strictly working in their given areas 
-Lucas:  shading + procedural generation 
-Sebastian: sound design + Level design
-Yannick: modeling + character animation
-Jenny: character movement/interaction + AI
+General plan below, though this does not mean team members will be strictly working in their given areas: 
+* Lucas:  shading + procedural generation 
+* Sebastian: sound design + Level design
+* Yannick: modeling + character animation
+* Jenny: character movement/interaction + AI
 
-Report to be worked on by all members, with each member writing primarily about what they worked on
+Report to be worked on by all members, with each member writing primarily about what they worked on.
+We will be holding weekly retrospective team meetings. Here will we asses progress made from the last meeting and assign tasks for the upcoming week. 
+Our main focus will be to complete the main game until the 16th of October and then introduce changes and updates based on
+feedback after. Furthermore, time after the 16th will be allocated to write the final report. 
 
 <!-- [[EndTeamworkPlan]] PLEASE LEAVE THIS LINE UNTOUCHED -->
 
