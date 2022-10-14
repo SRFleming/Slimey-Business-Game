@@ -854,6 +854,9 @@ MonoBehaviour:
   projectilePrefab: {fileID: 5903902575725225036, guid: 674b373550812f743a3973d5bca1c4bb, type: 3}
   muzzle: {fileID: 2146014570}
   bulletSpeed: 10
+  fireCooldown: 0.5
+  numProjectiles: 5
+  automatic: 0
 --- !u!65 &1007675521
 BoxCollider:
   m_ObjectHideFlags: 0

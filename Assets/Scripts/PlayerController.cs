@@ -15,10 +15,10 @@ public class PlayerController : MonoBehaviour
         moveDirectionX = Input.GetAxisRaw("Horizontal");
         moveDirectionZ = Input.GetAxisRaw("Vertical");
 
-        if (Input.GetMouseButtonDown(0))
-        {
-            weapon.Shoot(aimDirection);
+        if(weapon.automatic){
+          if (Input.GetMouseButton(0)){ weapon.Shoot(aimDirection); }  
         }
+        else if (Input.GetMouseButtonDown(0)){ weapon.Shoot(aimDirection); }
     }
 
     private void FixedUpdate()
