@@ -4,10 +4,10 @@ public class Weapon : MonoBehaviour
 {   
     public GameObject projectilePrefab;
     public Transform muzzle;
-    public float bulletSpeed, fireCooldown = 0.25f;
-    public int numProjectiles = 5;
+    public float bulletSpeed, fireCooldown;
+    public int numProjectiles;
     public int damage;
-    public bool automatic = true;
+    public bool automatic;
     private float currentCooldown;
 
 
@@ -16,7 +16,7 @@ public class Weapon : MonoBehaviour
         currentCooldown = fireCooldown;
     }
 
-    public void Shoot(Vector3 aimDirection)
+    public void Shoot(Vector3 aimDirection, float damageMultiplier, float aSpeedMultiplier)
     {   
         if(currentCooldown <= 0.0f){
             if(numProjectiles>1){
@@ -24,10 +24,10 @@ public class Weapon : MonoBehaviour
                 for(int i=0; i < numProjectiles; i++){
                     GameObject projectile = Instantiate(this.projectilePrefab);
                     projectile.transform.position = muzzle.position;
-                    projectile.GetComponent<ProjectileController>().SetDamage(damage);
+                    projectile.GetComponent<ProjectileController>().SetDamage((int)(damage*damageMultiplier));
                     projectile.GetComponent<ProjectileController>().SetVelocity(bulletAngle*bulletSpeed);
                     bulletAngle = Quaternion.Euler(0, 10, 0)*bulletAngle;
-                    currentCooldown = fireCooldown;
+                    currentCooldown = fireCooldown*(aSpeedMultiplier);
                 }
             }
             else{

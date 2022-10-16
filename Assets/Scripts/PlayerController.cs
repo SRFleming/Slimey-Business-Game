@@ -4,26 +4,33 @@ public class PlayerController : MonoBehaviour
 {
     [SerializeField] private float speed = 3.0f;
     [SerializeField] private GameObject projectilePrefab;
+    [SerializeField] private float damageMultiplier, speedMultiplier, aSpeedMultiplier;
     public Rigidbody rBody;
     public Weapon weapon; 
     private Vector3 aimDirection = Vector3.forward;
-    private float moveDirectionX;
-    private float moveDirectionZ;
-    private float aimAngle;
+    private float moveDirectionX, moveDirectionZ, aimAngle;
+    
+    private void Start()
+    {
+        damageMultiplier = 1f;
+        speedMultiplier = 1f;
+        aSpeedMultiplier = 1f;
+    }
+    
     private void Update()
     {
         moveDirectionX = Input.GetAxisRaw("Horizontal");
         moveDirectionZ = Input.GetAxisRaw("Vertical");
 
         if(weapon.automatic){
-          if (Input.GetMouseButton(0)){ weapon.Shoot(aimDirection); }  
+          if (Input.GetMouseButton(0)){ weapon.Shoot(aimDirection, damageMultiplier, aSpeedMultiplier); }  
         }
-        else if (Input.GetMouseButtonDown(0)){ weapon.Shoot(aimDirection); }
+        else if (Input.GetMouseButtonDown(0)){ weapon.Shoot(aimDirection, damageMultiplier, aSpeedMultiplier); }
     }
 
     private void FixedUpdate()
     {
-        rBody.velocity = new Vector3(moveDirectionX,0,moveDirectionZ)*speed;
+        rBody.velocity = new Vector3(moveDirectionX,0,moveDirectionZ)*speed*speedMultiplier;
 
         // calculate aim direction from mouse postion       
         Plane plane = new Plane(Vector3.up, new Vector3(0,transform.position.y,0));
@@ -41,5 +48,15 @@ public class PlayerController : MonoBehaviour
         float aimAngle = Mathf.Atan2(aimDirection.z, aimDirection.x)*Mathf.Rad2Deg - 90f;
         rBody.rotation = Quaternion.Euler(0,-aimAngle,0);
 
+    }
+
+    public void AddDamageMulti(float m){
+        damageMultiplier += m;
+    }
+    public void AddASpeedMulti(float m){
+        aSpeedMultiplier -= m;
+    }
+    public void AddSpeedMulti(float m){
+        speedMultiplier += m;
     }
 }
