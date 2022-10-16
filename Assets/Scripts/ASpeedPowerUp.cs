@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SpeedPowerUp : MonoBehaviour
+public class ASpeedPowerUp : MonoBehaviour
 {
     private void OnTriggerEnter(Collider col)
     {
