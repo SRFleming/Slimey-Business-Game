@@ -2,11 +2,12 @@ using UnityEngine;
 
 public class Weapon : MonoBehaviour
 {   
-    [SerializeField] public GameObject projectilePrefab;
-    [SerializeField] public Transform muzzle;
-    [SerializeField] public float bulletSpeed, fireCooldown = 0.25f;
-    [SerializeField] public int numProjectiles = 5;
-    [SerializeField] public bool automatic = true;
+    public GameObject projectilePrefab;
+    public Transform muzzle;
+    public float bulletSpeed, fireCooldown = 0.25f;
+    public int numProjectiles = 5;
+    public int damage;
+    public bool automatic = true;
     private float currentCooldown;
 
 
@@ -23,6 +24,7 @@ public class Weapon : MonoBehaviour
                 for(int i=0; i < numProjectiles; i++){
                     GameObject projectile = Instantiate(this.projectilePrefab);
                     projectile.transform.position = muzzle.position;
+                    projectile.GetComponent<ProjectileController>().SetDamage(damage);
                     projectile.GetComponent<ProjectileController>().SetVelocity(bulletAngle*bulletSpeed);
                     bulletAngle = Quaternion.Euler(0, 10, 0)*bulletAngle;
                     currentCooldown = fireCooldown;
@@ -31,6 +33,7 @@ public class Weapon : MonoBehaviour
             else{
                 GameObject projectile = Instantiate(this.projectilePrefab);
                 projectile.transform.position = muzzle.position;
+                projectile.GetComponent<ProjectileController>().SetDamage(damage);
                 projectile.GetComponent<ProjectileController>().SetVelocity(aimDirection*bulletSpeed);
                 currentCooldown = fireCooldown;
             }

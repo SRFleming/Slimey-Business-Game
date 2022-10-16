@@ -26,7 +26,7 @@ public class PlayerController : MonoBehaviour
         rBody.velocity = new Vector3(moveDirectionX,0,moveDirectionZ)*speed;
 
         // calculate aim direction from mouse postion       
-        Plane plane = new Plane(Vector3.up, new Vector3(0,1.25f,0));
+        Plane plane = new Plane(Vector3.up, new Vector3(0,transform.position.y,0));
         Vector3 mousePos = Input.mousePosition;
         Vector3 mouseWorldPos = Vector3.down;
         float distance;
