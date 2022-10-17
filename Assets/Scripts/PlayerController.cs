@@ -4,11 +4,9 @@ public class PlayerController : MonoBehaviour
 {
     [SerializeField] private float speed = 3.0f;
     [SerializeField] private GameObject projectilePrefab;
-    [SerializeField] private GameObject playerModel;
     [SerializeField] private float damageMultiplier, speedMultiplier, aSpeedMultiplier;
     private Rigidbody rBody;
     public Weapon weapon; 
-    private Animator animator;
     private Vector3 aimDirection = Vector3.forward;
     private float moveDirectionX, moveDirectionZ, aimAngle;
     
@@ -18,19 +16,12 @@ public class PlayerController : MonoBehaviour
         speedMultiplier = 1f;
         aSpeedMultiplier = 1f;
         rBody = this.GetComponent<Rigidbody>();
-        animator = playerModel.GetComponent<Animator>();
     }
     
     private void Update()
     {
         moveDirectionX = Input.GetAxisRaw("Horizontal");
         moveDirectionZ = Input.GetAxisRaw("Vertical");
-
-        if ((this.rBody.velocity != Vector3.zero)) {
-            animator.SetBool("isRunning", true);
-        } else {
-            animator.SetBool("isRunning", false);
-        }
 
         if(weapon.automatic){
           if (Input.GetMouseButton(0)){ weapon.Shoot(damageMultiplier, aSpeedMultiplier); }  
