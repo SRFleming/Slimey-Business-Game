@@ -5,11 +5,7 @@ using UnityEngine;
 public class MapGen : MonoBehaviour {
     Dictionary<int, GameObject> tiles;
     Dictionary<int, GameObject> tile_names;
-    [SerializeField] private GameObject prefab_empty;
-    [SerializeField] private GameObject prefab_grass;
-    [SerializeField] private GameObject prefab_smallforest;
-    [SerializeField] private GameObject prefab_rocks;
-    [SerializeField] private GameObject prefab_mapedges;
+    [SerializeField] private GameObject[] tile_prefabs;
 
     [SerializeField] private int map_width;
     [SerializeField] private int map_height;
@@ -32,10 +28,9 @@ public class MapGen : MonoBehaviour {
  
     public void CreateTiles() { 
         tiles = new Dictionary<int, GameObject>();
-        tiles.Add(0, prefab_empty);
-        tiles.Add(1, prefab_grass);
-        tiles.Add(2, prefab_smallforest);
-        tiles.Add(3, prefab_rocks);
+        for (int i = 0; i < tile_prefabs.Length; i++) {
+            tiles.Add(i, tile_prefabs[i]);
+        }
     }
  
     public void FindTileNames() {
@@ -68,6 +63,10 @@ public class MapGen : MonoBehaviour {
  
         if(perlin_scaled == tiles.Count) {
             perlin_scaled = (tiles.Count - 1);
+        }
+
+        if (Mathf.FloorToInt(perlin_scaled) < 0) {
+            return 0;
         }
         return Mathf.FloorToInt(perlin_scaled);
     }
