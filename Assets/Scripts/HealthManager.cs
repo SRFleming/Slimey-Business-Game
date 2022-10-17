@@ -6,6 +6,7 @@ public class HealthManager : MonoBehaviour
     [SerializeField] private int startingHealth = 100;
     [SerializeField] private UnityEvent onDeath;
     [SerializeField] private UnityEvent<float> onHealthChanged;
+    public ParticleSystem deathEffect;
 
     private int _currentHealth;
 
@@ -20,6 +21,8 @@ public class HealthManager : MonoBehaviour
             if (CurrentHealth <= 0)
             {
                 this.onDeath.Invoke();
+                Instantiate(deathEffect);
+                deathEffect.transform.position = transform.position;
                 Destroy(gameObject);
             }
         }
