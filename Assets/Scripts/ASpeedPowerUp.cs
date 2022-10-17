@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class ASpeedPowerUp : MonoBehaviour
 {
+    public ParticleSystem particles;
+
     private void OnTriggerEnter(Collider col)
     {
         if (col.CompareTag("Player"))
@@ -15,6 +17,8 @@ public class ASpeedPowerUp : MonoBehaviour
     void Pickup(GameObject player)
     {
         player.GetComponent<PlayerController>().AddASpeedMulti(0.25f);
+        Instantiate(particles);
+        particles.transform.position = transform.position;
         Destroy(gameObject);
     }
 }
