@@ -20,15 +20,13 @@ public class PlayerController : MonoBehaviour
     
     private void Update()
     {
-        Debug.Log("start update" + rBody.velocity.ToString());
         moveDirectionX = Input.GetAxisRaw("Horizontal");
         moveDirectionZ = Input.GetAxisRaw("Vertical");
 
         if(weapon.automatic){
-          if (Input.GetMouseButton(0)){ weapon.Shoot(aimDirection, damageMultiplier, aSpeedMultiplier); }  
+          if (Input.GetMouseButton(0)){ weapon.Shoot(damageMultiplier, aSpeedMultiplier); }  
         }
-        else if (Input.GetMouseButtonDown(0)){ weapon.Shoot(aimDirection, damageMultiplier, aSpeedMultiplier); }
-        Debug.Log("end update" + rBody.velocity.ToString());
+        else if (Input.GetMouseButtonDown(0)){ weapon.Shoot(damageMultiplier, aSpeedMultiplier); }
     }
 
     private void FixedUpdate()
@@ -64,7 +62,6 @@ public class PlayerController : MonoBehaviour
     }
 
     public void OnCollisionEnter(Collision col){
-        Debug.Log("collision enter: " + rBody.velocity.ToString());
         rBody.velocity = Vector3.zero;
     }
 }

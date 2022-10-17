@@ -16,14 +16,15 @@ public class Weapon : MonoBehaviour
         currentCooldown = fireCooldown;
     }
 
-    public void Shoot(Vector3 aimDirection, float damageMultiplier, float aSpeedMultiplier)
+    public void Shoot(float damageMultiplier, float aSpeedMultiplier)
     {   
         if(currentCooldown <= 0.0f){
             if(numProjectiles>1){
-                Vector3 bulletAngle = Quaternion.Euler(0, -(numProjectiles/2)*10, 0)*aimDirection;
+                Vector3 bulletAngle = Quaternion.Euler(0, -(numProjectiles/2)*10, 0)*Vector3.forward;
                 for(int i=0; i < numProjectiles; i++){
                     GameObject projectile = Instantiate(this.projectilePrefab);
                     projectile.transform.position = muzzle.position;
+                    projectile.transform.rotation = transform.rotation;
                     projectile.GetComponent<ProjectileController>().SetDamage((int)(damage*damageMultiplier));
                     projectile.GetComponent<ProjectileController>().SetVelocity(bulletAngle*bulletSpeed);
                     bulletAngle = Quaternion.Euler(0, 10, 0)*bulletAngle;
@@ -33,8 +34,9 @@ public class Weapon : MonoBehaviour
             else{
                 GameObject projectile = Instantiate(this.projectilePrefab);
                 projectile.transform.position = muzzle.position;
+                projectile.transform.rotation = transform.rotation;
                 projectile.GetComponent<ProjectileController>().SetDamage(damage);
-                projectile.GetComponent<ProjectileController>().SetVelocity(aimDirection*bulletSpeed);
+                projectile.GetComponent<ProjectileController>().SetVelocity(Vector3.forward*bulletSpeed);
                 currentCooldown = fireCooldown;
             }
         }
