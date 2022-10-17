@@ -9,14 +9,14 @@ using Random = UnityEngine.Random;
 
 [RequireComponent(typeof(Rigidbody))]
 [RequireComponent(typeof(RigidbodyLookRotation))]
-public class EnemyController : MonoBehaviour
+public class ShootEnemy : MonoBehaviour
 {
-    [SerializeField] private ProjectileController projectilePrefab;
+    public GameObject projectilePrefab;
     [SerializeField] private float projectileSpeed;
     [SerializeField] private float minIdleTime;
     [SerializeField] private float maxIdleTime;
     [SerializeField] private float aimTime;
-    [SerializeField] private float attackStateThrustForce;
+    [SerializeField] private float damage;
 
     private PlayerController _player;
     private Rigidbody _rigidbody;
@@ -87,7 +87,6 @@ public class EnemyController : MonoBehaviour
         // parameters like this can be varied to change opponent difficulty. 
         yield return new WaitForSeconds(this.aimTime);
         
-        // Lunge upwards before firing.
         yield return Fire();
     }
 
@@ -101,12 +100,15 @@ public class EnemyController : MonoBehaviour
 
     private IEnumerator Fire()
     {
-        Instantiate(this.projectilePrefab, transform.position, Quaternion.identity)
-            .SetVelocity(this._aimDirection * this.projectileSpeed);
-        
+        //this._rigidbody.AddForce(new Vector3 (1,1,1), ForceMode.Impulse);
+        GameObject projectile = Instantiate(this.projectilePrefab);//, transform.position, Quaternion.identity);
+        projectile.transform.position = transform.position + this._aimDirection*2;
+        projectile.GetComponent<ProjectileController>().SetDamage((int)(damage));
+        projectile.GetComponent<ProjectileController>().SetVelocity(this._aimDirection * this.projectileSpeed);
+
         // Recoil impulse // Add later
-        this._rigidbody.AddForce(
-            -this._aimDirection * this.projectileSpeed, ForceMode.Impulse); 
+        /*this._rigidbody.AddForce(
+            -this._aimDirection * this.projectileSpeed, ForceMode.Impulse);  */
         
         yield return new WaitForSeconds(0.5f); // Small delay after fire.
     }
