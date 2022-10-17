@@ -5,7 +5,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float speed = 3.0f;
     [SerializeField] private GameObject projectilePrefab;
     [SerializeField] private float damageMultiplier, speedMultiplier, aSpeedMultiplier;
-    public Rigidbody rBody;
+    private Rigidbody rBody;
     public Weapon weapon; 
     private Vector3 aimDirection = Vector3.forward;
     private float moveDirectionX, moveDirectionZ, aimAngle;
@@ -15,10 +15,12 @@ public class PlayerController : MonoBehaviour
         damageMultiplier = 1f;
         speedMultiplier = 1f;
         aSpeedMultiplier = 1f;
+        rBody = this.GetComponent<Rigidbody>();
     }
     
     private void Update()
     {
+        Debug.Log("start update" + rBody.velocity.ToString());
         moveDirectionX = Input.GetAxisRaw("Horizontal");
         moveDirectionZ = Input.GetAxisRaw("Vertical");
 
@@ -26,12 +28,13 @@ public class PlayerController : MonoBehaviour
           if (Input.GetMouseButton(0)){ weapon.Shoot(aimDirection, damageMultiplier, aSpeedMultiplier); }  
         }
         else if (Input.GetMouseButtonDown(0)){ weapon.Shoot(aimDirection, damageMultiplier, aSpeedMultiplier); }
+        Debug.Log("end update" + rBody.velocity.ToString());
     }
 
     private void FixedUpdate()
     {
         rBody.velocity = new Vector3(moveDirectionX,0,moveDirectionZ)*speed*speedMultiplier;
-
+        Debug.Log(rBody.velocity);
         // calculate aim direction from mouse postion       
         Plane plane = new Plane(Vector3.up, new Vector3(0,transform.position.y,0));
         Vector3 mousePos = Input.mousePosition;
@@ -58,5 +61,10 @@ public class PlayerController : MonoBehaviour
     }
     public void AddSpeedMulti(float m){
         speedMultiplier += m;
+    }
+
+    public void OnCollisionEnter(Collision col){
+        Debug.Log("collision enter: " + rBody.velocity.ToString());
+        rBody.velocity = Vector3.zero;
     }
 }
