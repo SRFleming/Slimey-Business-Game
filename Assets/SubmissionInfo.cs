@@ -26,17 +26,14 @@ public static class SubmissionInfo
 
     // This may be a "working title" to begin with, but ensure it is final by
     // the video milestone deadline (plain text, no more than 50 chars).
-    public static readonly string GameName = "ARMY OF THE DEAD";
+    public static readonly string GameName = "SLIMEY BUSINESS: THE SLIMEAGGEDON";
 
     // Write a brief blurb of your game, no more than 200 words. Again, ensure
     // this is final by the video milestone deadline.
     public static readonly string GameBlurb = 
-@"You are a lone survivor on earth, that has been overrun by highly intelligent zombies.
-You have been hiding in your shelter, but will have to move soon. This means you will have to
-fight through hordes of zombies to get to a new outpost. Luckily you are not alone. You have 
-developed the ability to split yourself in time, and your past selves can come back from the 
-dead to help you. With your special ability, you can show the zombies who the REAL army of the
-dead is.
+@"You wake up in the woods with a shotgun in your hands, surrounded by highly intelligent slimes that are 
+hungry for blood. All you have is your trusty guns to help fight against hordes of slimes. If you can make it 
+through the different terrains, you can get out alive, but if you can't, then meat is back on the slime menu.
 ";
     
     // By the gameplay video milestone deadline this should be a direct link
