@@ -23,7 +23,6 @@ public class MapGen : MonoBehaviour {
         CreateTiles();
         FindTileNames();
         GenerateMap();
-        GenerateMapEdge();
     }
  
     public void CreateTiles() { 
@@ -86,10 +85,6 @@ public class MapGen : MonoBehaviour {
         tile.transform.localRotation = Quaternion.Euler(new Vector3(0, possible_rotations[rdm], 0));
  
         tile_grid[x].Add(tile);
-    }
-
-    public void GenerateMapEdge() {
-
     }
 
     public void Clear() {
