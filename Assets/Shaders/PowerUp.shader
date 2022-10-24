@@ -38,7 +38,10 @@ Shader "Unlit/PowerUp"
             v2f vert (appdata v)
             {
                 v2f o;
-                v.vertex.xyz = v.vertex.xyz*(1+(0.2*abs(sin(_Time.y*0.5))*2));
+                // powerup grows/shrinks over time based on sin function between 1 and 1.4 times the model size
+                // makes the powerup more visible/appealing to the player
+                float growthFactor = (1+(0.4*abs(sin(_Time.y))));
+                v.vertex.xyz *= growthFactor;
                 o.vertex = UnityObjectToClipPos(v.vertex);
                 o.uv = TRANSFORM_TEX(v.uv, _MainTex);
                 UNITY_TRANSFER_FOG(o,o.vertex);
@@ -49,6 +52,7 @@ Shader "Unlit/PowerUp"
             {
                 // sample the texture
                 fixed4 col = tex2D(_MainTex, i.uv);
+                col *= (1+(0.3*abs(sin(_Time.y))));
                 // apply fog
                 UNITY_APPLY_FOG(i.fogCoord, col);
                 return col;

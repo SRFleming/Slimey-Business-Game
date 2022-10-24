@@ -1,6 +1,6 @@
 // code inspired by https://roystan.net/articles/toon-shader/, https://en.wikipedia.org/wiki/Blinn%E2%80%93Phong_reflection_model
 
-Shader "Unlit/CellShader"
+Shader "Unlit/CellShaderNoSpec"
 {
     Properties
     {
@@ -11,7 +11,6 @@ Shader "Unlit/CellShader"
         _RimColor("Rim Color", Color) = (1,1,1,1)
         _RimAmount("Rim Amount", Range(0, 1)) = 0.7
         _RimThreshold("Rim Threshold", Range(0, 1)) = 0.1
-        _Color ("Color", Color) = (1, 1, 1, 1)
     }
     SubShader
     {
@@ -71,7 +70,7 @@ Shader "Unlit/CellShader"
                 o.normal = UnityObjectToWorldNormal(v.normal);
                 o.uv = TRANSFORM_TEX(v.uv, _MainTex);
                 o.viewDir = normalize(WorldSpaceViewDir(v.vertex));
-                TRANSFER_SHADOW(o) // for using unity's built in shadows
+                TRANSFER_SHADOW(o)
                 return o;
             }
 
@@ -79,33 +78,32 @@ Shader "Unlit/CellShader"
             {
                 float3 normal = normalize(i.normal);
                 float3 lightDirection = normalize(_WorldSpaceLightPos0);
-                float shadow = SHADOW_ATTENUATION(i); // for using unity's built in shadows
 
                 // diffuse component of lighting, restricted to two values for cel shading effect
+                float shadow = SHADOW_ATTENUATION(i);
                 float NdotL = dot(lightDirection,normal);
                 float rNdotL;
                 if(NdotL < 0) {rNdotL = 0;}
                 else {rNdotL = 1;}
                 rNdotL = smoothstep(0,0.01,NdotL*shadow);
 
-                // specular reflection component of the lighting using the blinn phong lighting model 
-                // _Glossiness determines the strength of the specular effect
+                // specular reflection component of the lighting using the blinn phong lighting model
+                // _Glossiness
                 float3 halfV = normalize(lightDirection + i.viewDir);
                 float NdotH = dot(normal, halfV);
                 float specular = pow(NdotH*rNdotL, _Glossiness*_Glossiness);
                 specular = smoothstep(0.005,0.01,specular);
 
-                // lighting on the rim around the edge of an object, gives 
+                // lighting on the rim around the edge of an object
                 float4 rimDot = 1 - dot(i.viewDir, normal);
                 rimDot = rimDot * pow(NdotL, _RimThreshold);
                 rimDot = smoothstep(_RimAmount - 0.01, _RimAmount + 0.01, rimDot);
 
-                fixed4 col = _Color; //tex2D(_MainTex, i.uv);
-                return col*(_AmbientColor + rNdotL*0.65  + specular*0.65 + rimDot);
+                fixed4 col = tex2D(_MainTex, i.uv);
+                return col*(_AmbientColor + rNdotL*0.65  /*+ specular*0.65*/ + rimDot*0.65);
             }
             ENDCG
         }
-        // Uses unity shadowcaster pass after cellshading effect is calculated
         UsePass "Legacy Shaders/VertexLit/SHADOWCASTER"
     }
 }
