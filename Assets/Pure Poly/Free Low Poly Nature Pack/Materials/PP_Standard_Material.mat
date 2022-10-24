@@ -62,6 +62,8 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
+    - _AmbientStrength: 1
+    - _Brightness: 1
     - _BumpScale: 1
     - _Cutoff: 0.5
     - _DetailNormalMapScale: 1
@@ -73,8 +75,8 @@ Material:
     - _Mode: 0
     - _OcclusionStrength: 1
     - _Parallax: 0.02
-    - _RimAmount: 0.7
-    - _RimThreshold: 0.1
+    - _RimAmount: 0.741
+    - _RimThreshold: 0.112
     - _Shininess: 5
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 0

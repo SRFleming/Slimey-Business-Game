@@ -1,12 +1,13 @@
 // code inspired by https://roystan.net/articles/toon-shader/, https://en.wikipedia.org/wiki/Blinn%E2%80%93Phong_reflection_model
 
-Shader "Unlit/CellShaderNoSpec"
+Shader "Unlit/CellShaderColor"
 {
     Properties
     {
         _MainTex ("Texture", 2D) = "white" {}
-        _Shininess ("Shininess", Float) = 5
-        _AmbientColor ("Ambient Color", Color) = (0.3,0.3,0.3,1)
+        _Brightness("Brightness",  Range(0, 1)) = 1
+        _AmbientColor ("Ambient Color", Color) = (0.4,0.4,0.4,1)
+        _AmbientStrength("Ambient Strength",  Range(0, 1)) = 1
         _Glossiness ("Glossiness", Float) = 30
         _RimColor("Rim Color", Color) = (1,1,1,1)
         _RimAmount("Rim Amount", Range(0, 1)) = 0.7
@@ -37,7 +38,8 @@ Shader "Unlit/CellShaderNoSpec"
             uniform float4 _Color; 
             uniform float4 _SpecularColor;
             uniform float4 _AmbientColor;
-            uniform float _Shininess;
+            uniform float _AmbientStrength;
+            uniform float _Brightness;
             uniform float _Glossiness;
             float4 _RimColor;
             float _RimAmount;
@@ -100,7 +102,7 @@ Shader "Unlit/CellShaderNoSpec"
                 rimDot = smoothstep(_RimAmount - 0.01, _RimAmount + 0.01, rimDot);
 
                 fixed4 col = tex2D(_MainTex, i.uv);
-                return col*(_AmbientColor + rNdotL*0.65  /*+ specular*0.65*/ + rimDot*0.65);
+                return col*(_AmbientColor*_AmbientStrength + rNdotL*0.65 + specular*0.65 + rimDot*0.65)*_Brightness;
             }
             ENDCG
         }

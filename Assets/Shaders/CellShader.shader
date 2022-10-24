@@ -1,15 +1,16 @@
 // code inspired by https://roystan.net/articles/toon-shader/, https://en.wikipedia.org/wiki/Blinn%E2%80%93Phong_reflection_model
 
-Shader "Unlit/CellShader"
+Shader "Unlit/CellShaderTexture"
 {
     Properties
     {
         _MainTex ("Texture", 2D) = "white" {}
-        _Shininess ("Shininess", Float) = 5
+        _Brightness ("Brightness", Float) = 1
         _AmbientColor ("Ambient Color", Color) = (0.3,0.3,0.3,1)
-        _Glossiness ("Glossiness", Float) = 30
+        _AmbientStrength("Ambient Strength",  Range(0, 1)) = 1
+        _Glossiness ("Glossiness", Float) = 30 // The higher the glossiness, the more focused the specular highlights
         _RimColor("Rim Color", Color) = (1,1,1,1)
-        _RimAmount("Rim Amount", Range(0, 1)) = 0.7
+        _RimAmount("Rim Amount", Range(0, 1)) = 0.7 // The higher the rim amount, the smaller the rim around edges
         _RimThreshold("Rim Threshold", Range(0, 1)) = 0.1
         _Color ("Color", Color) = (1, 1, 1, 1)
     }
@@ -38,7 +39,8 @@ Shader "Unlit/CellShader"
             uniform float4 _Color; 
             uniform float4 _SpecularColor;
             uniform float4 _AmbientColor;
-            uniform float _Shininess;
+            uniform float _AmbientStrength;
+            uniform float _Brightness;
             uniform float _Glossiness;
             float4 _RimColor;
             float _RimAmount;
@@ -89,7 +91,6 @@ Shader "Unlit/CellShader"
                 rNdotL = smoothstep(0,0.01,NdotL*shadow);
 
                 // specular reflection component of the lighting using the blinn phong lighting model 
-                // _Glossiness determines the strength of the specular effect
                 float3 halfV = normalize(lightDirection + i.viewDir);
                 float NdotH = dot(normal, halfV);
                 float specular = pow(NdotH*rNdotL, _Glossiness*_Glossiness);
@@ -101,7 +102,7 @@ Shader "Unlit/CellShader"
                 rimDot = smoothstep(_RimAmount - 0.01, _RimAmount + 0.01, rimDot);
 
                 fixed4 col = _Color; //tex2D(_MainTex, i.uv);
-                return col*(_AmbientColor + rNdotL*0.65  + specular*0.65 + rimDot);
+                return col*(_AmbientColor*_AmbientStrength + rNdotL*0.65  + specular*0.65 + rimDot)*_Brightness;
             }
             ENDCG
         }

@@ -8,15 +8,15 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: sand
-  m_Shader: {fileID: 4800000, guid: 103b86afa210a8d4387d00045cfa0c90, type: 3}
+  m_Shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
-  m_ValidKeywords: []
-  m_InvalidKeywords:
+  m_ValidKeywords:
   - _EMISSION
   - _GLOSSYREFLECTIONS_OFF
   - _NORMALMAP
   - _PARALLAXMAP
+  m_InvalidKeywords: []
   m_LightmapFlags: 0
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -82,7 +82,7 @@ Material:
     - _EmissionEnabled: 0
     - _FlipbookMode: 0
     - _GlossMapScale: 0
-    - _Glossiness: 1000
+    - _Glossiness: 0
     - _GlossyReflections: 0
     - _LightingEnabled: 0
     - _Metallic: 1

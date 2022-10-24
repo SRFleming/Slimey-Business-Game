@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField] private float speed = 3.0f;
+    [SerializeField] private float speed = 30.0f;
     [SerializeField] private GameObject projectilePrefab;
     [SerializeField] private GameObject playerModel;
     [SerializeField] private float damageMultiplier, speedMultiplier, aSpeedMultiplier;
@@ -26,21 +26,21 @@ public class PlayerController : MonoBehaviour
         moveDirectionX = Input.GetAxisRaw("Horizontal");
         moveDirectionZ = Input.GetAxisRaw("Vertical");
 
-        if ((this.rBody.velocity != Vector3.zero)) {
+        if ((moveDirectionX != 0 || moveDirectionZ != 0)) {
             animator.SetBool("isRunning", true);
         } else {
             animator.SetBool("isRunning", false);
         }
+        rBody.velocity = new Vector3(moveDirectionX, 0, moveDirectionZ) * speed * speedMultiplier * Time.deltaTime;
 
-        if(weapon.automatic){
+        if (weapon.automatic){
           if (Input.GetMouseButton(0)){ weapon.Shoot(damageMultiplier, aSpeedMultiplier); }  
         }
         else if (Input.GetMouseButtonDown(0)){ weapon.Shoot(damageMultiplier, aSpeedMultiplier); }
     }
 
     private void FixedUpdate()
-    {
-        rBody.velocity = new Vector3(moveDirectionX,0,moveDirectionZ)*speed*speedMultiplier;
+    {   
         Debug.Log(rBody.velocity);
         // calculate aim direction from mouse postion       
         Plane plane = new Plane(Vector3.up, new Vector3(0,transform.position.y,0));
