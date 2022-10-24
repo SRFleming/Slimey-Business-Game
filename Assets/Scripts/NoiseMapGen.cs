@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
  
-public class MapGen : MonoBehaviour {
+public class NoiseMapGen : MonoBehaviour {
     Dictionary<int, GameObject> tiles;
     Dictionary<int, GameObject> tile_names;
     [SerializeField] private GameObject[] tile_prefabs;
@@ -13,16 +13,16 @@ public class MapGen : MonoBehaviour {
     [SerializeField] private int x_offset;
     [SerializeField] private int z_offset;
     [SerializeField] private float noise_scale;
-    [SerializeField] public bool autoUpdate;
+    public bool autoUpdate {get; private set;} = true;
  
     List<List<int>> noise = new List<List<int>>();
     List<List<GameObject>> tile_grid = new List<List<GameObject>>();
  
-    public void Generate() {
+    public void GenerateMap() {
         Clear();
         CreateTiles();
         FindTileNames();
-        GenerateMap();
+        GenerateTiles();
     }
  
     public void CreateTiles() { 
@@ -43,7 +43,7 @@ public class MapGen : MonoBehaviour {
         }
     }
  
-    public void GenerateMap() {
+    public void GenerateTiles() {
         for (int x = 0; x < map_width; x++) {
             noise.Add(new List<int>());
             tile_grid.Add(new List<GameObject>());
