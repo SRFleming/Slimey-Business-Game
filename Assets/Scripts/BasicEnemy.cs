@@ -6,20 +6,22 @@ public class BasicEnemy : MonoBehaviour
     [SerializeField] private float speed;
     [SerializeField] private int damage;
     [SerializeField] private string damageTag;
-    private Rigidbody rBody;
+    private CharacterController cC;
     
     
     
     
     void Start(){
-        rBody = this.GetComponent<Rigidbody>();
+        cC = GetComponent<CharacterController>();
+        player = FindObjectOfType<PlayerController>().transform;
     }
 
-    void FixedUpdate(){
+    void Update(){
         Vector3 direction = Vector3.Normalize(player.position - transform.position);
-        rBody.velocity = direction*speed;
+        cC.Move(direction*speed*Time.deltaTime);
+        transform.position = new Vector3(transform.position.x, 0, transform.position.z);
         float directionAngle = Mathf.Atan2(direction.z, direction.x)*Mathf.Rad2Deg - 90f;
-        rBody.rotation = Quaternion.Euler(0,-directionAngle,0);
+        transform.rotation = Quaternion.Euler(0,-directionAngle,0);
     }
 
     private void OnCollisionEnter(Collision col){

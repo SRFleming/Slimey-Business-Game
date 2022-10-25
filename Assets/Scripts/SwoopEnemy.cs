@@ -9,9 +9,11 @@ public class SwoopEnemy : MonoBehaviour
     [SerializeField] private float minWaitTime;
     [SerializeField] private float maxWaitTime;
     [SerializeField] private float speed;
+    [SerializeField] private int damage;
+    [SerializeField] private string damageTag;
 
     private PlayerController player;
-    private Rigidbody rb;
+    private CharacterController cC;
     private EnemyState state;
     private Vector3 swoopDirection;
 
@@ -23,24 +25,26 @@ public class SwoopEnemy : MonoBehaviour
     private void Awake()
     {
         this.player = FindObjectOfType<PlayerController>();
-        this.rb = GetComponent<Rigidbody>();
+        this.cC = GetComponent<CharacterController>();
         StartCoroutine(AttackPattern());
     }
 
-    private void FixedUpdate()
+    private void Update()
     {
 
         if (this.state == EnemyState.Idle)
         {
-            this.rb.velocity = Vector3.zero;
+            cC.Move(Vector3.zero);
+            transform.position = new Vector3(transform.position.x, 0, transform.position.z);
             Vector3 swoopDistance = player.transform.position - this.transform.position;
             this.swoopDirection = swoopDistance.normalized;
             float swoopAngle = Mathf.Atan2(swoopDirection.z, swoopDirection.x)*Mathf.Rad2Deg - 90f;
-            rb.rotation = Quaternion.Euler(0,-swoopAngle,0);
+            transform.rotation = Quaternion.Euler(0,-swoopAngle,0);
         }
         else if (this.state == EnemyState.Swoop && this.player)
         {
-            this.rb.velocity = new Vector3(swoopDirection.x, 0, swoopDirection.z)*speed*Time.deltaTime;
+            cC.Move(new Vector3(swoopDirection.x, 0, swoopDirection.z)*speed*Time.deltaTime);
+            transform.position = new Vector3(transform.position.x, 0, transform.position.z);
         }
     }
 
@@ -69,6 +73,13 @@ public class SwoopEnemy : MonoBehaviour
         this.state = EnemyState.Swoop;
         yield return new WaitForSeconds(2.5f);
         
+    }
+
+    private void OnCollisionEnter(Collision col){
+        if(col.gameObject.tag == this.damageTag){
+            var healthManager = col.gameObject.GetComponent<HealthManager>();
+            healthManager.ApplyDamage(this.damage);
+        }
     }
 
 }
