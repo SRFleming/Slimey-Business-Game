@@ -460,7 +460,7 @@ MonoBehaviour:
   onHealthChanged:
     m_PersistentCalls:
       m_Calls: []
-  deathEffect: {fileID: 1391671984890573727, guid: 969961b0ef0213d4c8a533f5592752c5, type: 3}
+  deathEffect: {fileID: 1391671984890573727, guid: 12685901efa57bf42a32c88143fe19e7, type: 3}
 --- !u!143 &-4443241150691744696
 CharacterController:
   m_ObjectHideFlags: 0

@@ -9,6 +9,7 @@ public class HealthManager : MonoBehaviour
     public ParticleSystem deathEffect;
 
     private int _currentHealth;
+    private Quaternion damageDirection;
 
     private int CurrentHealth
     {
@@ -21,8 +22,9 @@ public class HealthManager : MonoBehaviour
             if (CurrentHealth <= 0)
             {
                 this.onDeath.Invoke();
-                Instantiate(deathEffect);
-                deathEffect.transform.position = transform.position;
+                ParticleSystem dEffect = Instantiate(deathEffect);
+                dEffect.transform.rotation = damageDirection;
+                dEffect.transform.position = this.transform.position;
                 Destroy(gameObject);
             }
         }
@@ -36,6 +38,12 @@ public class HealthManager : MonoBehaviour
     public void ResetHealthToStarting()
     {
         CurrentHealth = this.startingHealth;
+    }
+
+    public void ApplyImpactDamage(int damage, Quaternion d)
+    {
+        this.damageDirection = d;
+        CurrentHealth -= damage;
     }
 
     public void ApplyDamage(int damage)

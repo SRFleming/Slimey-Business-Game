@@ -23,7 +23,7 @@ public class ProjectileController : MonoBehaviour
     {
         if(col.gameObject.tag == damageTag){
             var healthManager = col.gameObject.GetComponent<HealthManager>();
-            healthManager.ApplyDamage(this.damage);
+            healthManager.ApplyImpactDamage(this.damage, this.transform.rotation);
         }
         Destroy(gameObject);
     } 

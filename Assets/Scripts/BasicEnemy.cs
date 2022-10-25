@@ -27,7 +27,6 @@ public class BasicEnemy : MonoBehaviour
     }
 
     private void OnControllerColliderHit(ControllerColliderHit hit){
-        Debug.Log(hit.gameObject.tag);
         if(hit.gameObject.tag == this.damageTag){
             if(currentCooldown <= 0){
                 var healthManager = hit.gameObject.GetComponent<HealthManager>();
