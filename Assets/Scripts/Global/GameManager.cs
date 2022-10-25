@@ -1,6 +1,3 @@
-// COMP30019 - Graphics and Interaction
-// (c) University of Melbourne, 2022
-
 using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;

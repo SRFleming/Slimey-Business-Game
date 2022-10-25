@@ -6,6 +6,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private GameObject projectilePrefab;
     [SerializeField] private GameObject playerModel;
     [SerializeField] private float damageMultiplier, speedMultiplier, aSpeedMultiplier;
+    private CharacterController cC;
     private Rigidbody rBody;
     public Weapon weapon; 
     private Animator animator;
@@ -17,32 +18,26 @@ public class PlayerController : MonoBehaviour
         damageMultiplier = 1f;
         speedMultiplier = 1f;
         aSpeedMultiplier = 1f;
-        rBody = this.GetComponent<Rigidbody>();
+        // rBody = this.GetComponent<Rigidbody>();
+        cC = this.GetComponent<CharacterController>();
         animator = playerModel.GetComponent<Animator>();
     }
     
     private void Update()
     {
+        // moves player based off input, chooses animation
         moveDirectionX = Input.GetAxisRaw("Horizontal");
         moveDirectionZ = Input.GetAxisRaw("Vertical");
-
+        cC.Move(new Vector3(moveDirectionX, 0, moveDirectionZ) * speed * speedMultiplier * Time.deltaTime);
+        transform.position = new Vector3(transform.position.x, 0, transform.position.z);
         if ((moveDirectionX != 0 || moveDirectionZ != 0)) {
             animator.SetBool("isRunning", true);
         } else {
             animator.SetBool("isRunning", false);
         }
-        rBody.velocity = new Vector3(moveDirectionX, 0, moveDirectionZ) * speed * speedMultiplier * Time.deltaTime;
-
-        if (weapon.automatic){
-          if (Input.GetMouseButton(0)){ weapon.Shoot(damageMultiplier, aSpeedMultiplier); }  
-        }
-        else if (Input.GetMouseButtonDown(0)){ weapon.Shoot(damageMultiplier, aSpeedMultiplier); }
-    }
-
-    private void FixedUpdate()
-    {   
-        Debug.Log(rBody.velocity);
-        // calculate aim direction from mouse postion       
+        
+        // rotates player to follow mouse
+        // aimAngle math from https://www.youtube.com/watch?v=LqrAbEaDQzc
         Plane plane = new Plane(Vector3.up, new Vector3(0,transform.position.y,0));
         Vector3 mousePos = Input.mousePosition;
         Vector3 mouseWorldPos = Vector3.down;
@@ -52,12 +47,13 @@ public class PlayerController : MonoBehaviour
             mouseWorldPos = ray.GetPoint(distance);
         }
         aimDirection = Vector3.Normalize(mouseWorldPos - gameObject.transform.position); 
-        
-        // rotate player to follow mouse
-        // aimAngle math from https://www.youtube.com/watch?v=LqrAbEaDQzc
         float aimAngle = Mathf.Atan2(aimDirection.z, aimDirection.x)*Mathf.Rad2Deg - 90f;
-        rBody.rotation = Quaternion.Euler(0,-aimAngle,0);
+        transform.rotation = Quaternion.Euler(0,-aimAngle,0);
 
+        if (weapon.automatic){
+          if (Input.GetMouseButton(0)){ weapon.Shoot(damageMultiplier, aSpeedMultiplier); }  
+        }
+        else if (Input.GetMouseButtonDown(0)){ weapon.Shoot(damageMultiplier, aSpeedMultiplier); }
     }
 
     public void AddDamageMulti(float m){
@@ -71,6 +67,6 @@ public class PlayerController : MonoBehaviour
     }
 
     public void OnCollisionEnter(Collision col){
-        rBody.velocity = Vector3.zero;
+        
     }
 }
