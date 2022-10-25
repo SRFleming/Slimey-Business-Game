@@ -476,7 +476,7 @@ CharacterController:
   m_Radius: 0.011
   m_SlopeLimit: 0
   m_StepOffset: 0
-  m_SkinWidth: 0.0001
+  m_SkinWidth: 0.005
   m_MinMoveDistance: 0
   m_Center: {x: 0, y: 0.02, z: 0.001}
 --- !u!114 &3611275609210842549
@@ -495,6 +495,7 @@ MonoBehaviour:
   maxWaitTime: 3
   speed: 30
   damage: 20
+  damageCooldown: 0.5
   damageTag: Player
 --- !u!1 &7605239018327454196
 GameObject:

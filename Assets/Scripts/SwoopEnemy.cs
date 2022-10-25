@@ -10,12 +10,14 @@ public class SwoopEnemy : MonoBehaviour
     [SerializeField] private float maxWaitTime;
     [SerializeField] private float speed;
     [SerializeField] private int damage;
+    [SerializeField] private float damageCooldown;
     [SerializeField] private string damageTag;
 
     private PlayerController player;
     private CharacterController cC;
     private EnemyState state;
     private Vector3 swoopDirection;
+    private float currentCooldown;
 
     private enum EnemyState {
         Idle,
@@ -26,6 +28,7 @@ public class SwoopEnemy : MonoBehaviour
     {
         this.player = FindObjectOfType<PlayerController>();
         this.cC = GetComponent<CharacterController>();
+        this.currentCooldown = damageCooldown;
         StartCoroutine(AttackPattern());
     }
 
@@ -46,6 +49,8 @@ public class SwoopEnemy : MonoBehaviour
             cC.Move(new Vector3(swoopDirection.x, 0, swoopDirection.z)*speed*Time.deltaTime);
             transform.position = new Vector3(transform.position.x, 0, transform.position.z);
         }
+        currentCooldown -= Time.deltaTime;
+
     }
 
     private IEnumerator AttackPattern()
@@ -75,10 +80,13 @@ public class SwoopEnemy : MonoBehaviour
         
     }
 
-    private void OnCollisionEnter(Collision col){
-        if(col.gameObject.tag == this.damageTag){
-            var healthManager = col.gameObject.GetComponent<HealthManager>();
-            healthManager.ApplyDamage(this.damage);
+    private void OnControllerColliderHit(ControllerColliderHit hit){
+        if(hit.gameObject.tag == this.damageTag){
+            if(currentCooldown <= 0){
+                var healthManager = hit.gameObject.GetComponent<HealthManager>();
+                healthManager.ApplyDamage(this.damage);
+                currentCooldown = damageCooldown;
+            }
         }
     }
 

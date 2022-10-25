@@ -5,10 +5,11 @@ public class BasicEnemy : MonoBehaviour
     [SerializeField] private Transform player;
     [SerializeField] private float speed;
     [SerializeField] private int damage;
+    [SerializeField] private float damageCooldown;
     [SerializeField] private string damageTag;
+   
     private CharacterController cC;
-    
-    
+    private float currentCooldown;
     
     
     void Start(){
@@ -22,12 +23,17 @@ public class BasicEnemy : MonoBehaviour
         transform.position = new Vector3(transform.position.x, 0, transform.position.z);
         float directionAngle = Mathf.Atan2(direction.z, direction.x)*Mathf.Rad2Deg - 90f;
         transform.rotation = Quaternion.Euler(0,-directionAngle,0);
+        currentCooldown -= Time.deltaTime;
     }
 
-    private void OnCollisionEnter(Collision col){
-        if(col.gameObject.tag == this.damageTag){
-            var healthManager = col.gameObject.GetComponent<HealthManager>();
-            healthManager.ApplyDamage(this.damage);
+    private void OnControllerColliderHit(ControllerColliderHit hit){
+        Debug.Log(hit.gameObject.tag);
+        if(hit.gameObject.tag == this.damageTag){
+            if(currentCooldown <= 0){
+                var healthManager = hit.gameObject.GetComponent<HealthManager>();
+                healthManager.ApplyDamage(this.damage);
+                currentCooldown = damageCooldown;
+            }
         }
     }
 }

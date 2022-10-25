@@ -21,6 +21,7 @@ public class PlayerController : MonoBehaviour
         // rBody = this.GetComponent<Rigidbody>();
         cC = this.GetComponent<CharacterController>();
         animator = playerModel.GetComponent<Animator>();
+        gameObject.tag = "Player";
     }
     
     private void Update()
@@ -66,7 +67,4 @@ public class PlayerController : MonoBehaviour
         speedMultiplier += m;
     }
 
-    public void OnCollisionEnter(Collision col){
-        
-    }
 }
