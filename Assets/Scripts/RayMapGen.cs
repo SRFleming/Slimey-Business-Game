@@ -63,8 +63,9 @@ public class RayMapGen : MonoBehaviour {
                 }      
             }
             
+            // IMPORTANT: CHECK IF PARENT EXISTS - IF YES DO THIS CODE IF NOT DONT CHECK ALL SIBLINGS.
             // Checking for intersections for all siblings.
-            if (transform.parent.childCount > 1) {
+            if (transform.parent.childCount > 1 && transform.parent is not null) {
                 for (int c = 0; c < transform.parent.childCount; c++) {
                     if (c != transform.GetSiblingIndex()) {
                         for (int j = 0; j < transform.parent.GetChild(c).childCount; j++) {
