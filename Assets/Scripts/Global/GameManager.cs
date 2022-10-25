@@ -11,16 +11,16 @@ public class GameManager : MonoBehaviour
     public const string MenuSceneName = "MenuScene";
     public const string GameSceneName = "GameScene";
     
-    private int _score;
+    private int _stats;
 
     public UnityEvent<int> OnScoreChanged { get; } = new();
-    public int Score
+    public int Stats
     {
-        get => this._score;
+        get => this._stats;
         set
         {
-            this._score = value;
-            OnScoreChanged.Invoke(this._score);
+            this._stats = value;
+            OnScoreChanged.Invoke(this._stats);
         }
     }
 
@@ -29,8 +29,8 @@ public class GameManager : MonoBehaviour
         // Should not be created if there's already a manager present (at least
         // two total, including ourselves). This allows us to place a game
         // manager in every scene, in case we want to open scenes direct.
-        if (GameObject.FindGameObjectsWithTag(Tag).Length > 1)
-            Destroy(gameObject);
+        /*if (GameObject.FindGameObjectsWithTag(Tag).Length > 1)
+            Destroy(gameObject); */
 
         // Make this game object persistent even between scene changes.
         DontDestroyOnLoad(gameObject);
@@ -39,7 +39,7 @@ public class GameManager : MonoBehaviour
         SceneManager.sceneLoaded += OnSceneLoaded;
 
         // Init global game state values and/or set defaults.
-        Score = 0;
+        Stats = 0;
     }
     
     public IEnumerator GotoScene(string sceneName, float delay)
@@ -56,6 +56,8 @@ public class GameManager : MonoBehaviour
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         if (scene.name == GameSceneName)
-            Score = 0; // Reset score upon game start
+        {
+            
+        }
     }
 }
