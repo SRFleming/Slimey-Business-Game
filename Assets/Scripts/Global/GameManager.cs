@@ -13,8 +13,8 @@ public class GameManager : MonoBehaviour
     
     private int _stats;
 
-    public UnityEvent<int> OnScoreChanged { get; } = new();
-    public int Stats
+    //public UnityEvent<int> OnScoreChanged { get; } = new();
+    /*public int Stats
     {
         get => this._stats;
         set
@@ -22,15 +22,15 @@ public class GameManager : MonoBehaviour
             this._stats = value;
             OnScoreChanged.Invoke(this._stats);
         }
-    }
+    } */
 
     private void Awake()
     {
         // Should not be created if there's already a manager present (at least
         // two total, including ourselves). This allows us to place a game
         // manager in every scene, in case we want to open scenes direct.
-        /*if (GameObject.FindGameObjectsWithTag(Tag).Length > 1)
-            Destroy(gameObject); */
+        if (GameObject.FindGameObjectsWithTag(Tag).Length > 1)
+            Destroy(gameObject);
 
         // Make this game object persistent even between scene changes.
         DontDestroyOnLoad(gameObject);
@@ -39,7 +39,6 @@ public class GameManager : MonoBehaviour
         SceneManager.sceneLoaded += OnSceneLoaded;
 
         // Init global game state values and/or set defaults.
-        Stats = 0;
     }
     
     public IEnumerator GotoScene(string sceneName, float delay)

@@ -23,9 +23,24 @@ public class SpawnEnemies : MonoBehaviour {
     [SerializeField] public float maxScale;
     [SerializeField] public int amount;
 
+
+    public bool Spawned { get; private set; }
+    public bool Defeated { get; private set; }
+    
     public void Start() {
         SpawnEnemyWave(enemies, amount, minScale, maxScale, player);
+        Spawned = true;
     }
+
+    /*private IEnumerator DefeatedCheck()
+    {
+        int x=1;
+        while (x=0);
+        {
+            yield return new WaitForSeconds(0.5f); // Not blocking!
+            Defeated = true;
+        }
+    } */
 
 
     public void SpawnEnemyWave(GameObject[] prefabs, int amount, float minScale, float maxScale, GameObject player) {

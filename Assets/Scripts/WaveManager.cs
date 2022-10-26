@@ -9,21 +9,21 @@ using UnityEngine.Events;
 public class WaveManager : MonoBehaviour
 {
     [SerializeField] private float nextWaveDelay;
-    [SerializeField] private SwarmManager[] waves;
+    [SerializeField] private SpawnEnemies[] waves;
     [SerializeField] private UnityEvent<int> waveIncoming;
     [SerializeField] private UnityEvent<int> waveSpawned;
     [SerializeField] private UnityEvent<int> waveDefeated;
     [SerializeField] private UnityEvent allWavesDefeated;
 
-    private Queue<SwarmManager> _nextWaves;
-    private SwarmManager _currentWave;
+    private Queue<SpawnEnemies> _nextWaves;
+    private SpawnEnemies _currentWave;
 
     private void Awake()
     {
         // Ensure all waves are inactive from the start. This has to be done
         // inside Awake() to avoid the Start() method being called inside the
         // individual swarm manager instances (which spawns the enemies).
-        this._nextWaves = new Queue<SwarmManager>(this.waves);
+        this._nextWaves = new Queue<SpawnEnemies>(this.waves);
         foreach (var wave in this._nextWaves)
             wave.gameObject.SetActive(false);
     }
@@ -44,7 +44,9 @@ public class WaveManager : MonoBehaviour
             waveNumber += 1;
             
             this.waveIncoming.Invoke(waveNumber);
-            
+
+            yield return new WaitForSeconds(this.nextWaveDelay);
+
             // Setting current wave object to active invokes its Start() method
             // thus spawning the wave. Wait until all spawning completes.
             yield return new WaitUntil(() => this._currentWave.Spawned);
@@ -57,8 +59,6 @@ public class WaveManager : MonoBehaviour
             // Destroy old swarm object - no need to keep it around!
             Destroy(this._currentWave.gameObject);
             
-            // Delay to give player a break.
-            yield return new WaitForSeconds(this.nextWaveDelay);
         }
         
         // Player has won - no more waves!
