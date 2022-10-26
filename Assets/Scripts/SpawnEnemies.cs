@@ -4,31 +4,31 @@ using UnityEngine;
 using UnityEditor;
 using System.IO;
 
-public class RayMapGen : MonoBehaviour {
+public class SpawnEnemies : MonoBehaviour {
     private int map_width = 12;
     private int map_height = 12;
-    [SerializeField] private GameObject[] prefabs;
-    [SerializeField] private int amount;
-    [SerializeField] private float minScale;
-    [SerializeField] private float maxScale;
+    private int scatter_area_scale = 4;
     public bool autoUpdate {get; private set;} = true;
 
     private List<GameObject> remove_objects = new List<GameObject>();
-    private int scatter_area_scale = 4;
 
-    void Start() {
-        GenerateMap();
+
+    // Find out how to pipe all of these parameters in from a different script. 
+    // Should be able to call SpawnEnemyWave with all parameters whenever from gameStateManager
+
+    // It is furthermore important that the script is put on a null with the map GameObjects as siblings to check intersections
+    [SerializeField] public GameObject player;
+    [SerializeField] public GameObject[] enemies;
+    [SerializeField] public float minScale;
+    [SerializeField] public float maxScale;
+    [SerializeField] public int amount;
+
+    public void Start() {
+        SpawnEnemyWave(enemies, amount, minScale, maxScale, player);
     }
 
-    // Should be possible to just call this function for all RayMapGen Scripts in the Scene to create a whole new map. 
-    public void GenerateMap() {
-        Clear();
-        scatterPrefabs(prefabs, amount, minScale, maxScale);
-    }
-    
-    // IMPORTANT: For use in GameStateManager try to spawn all prefabs under same parent
-    // We then dont have to check all sibling children for collisions and can restrict to just all children from main parent
-    public void scatterPrefabs(GameObject[] prefabs, int amount, float minScale, float maxScale) {
+
+    public void SpawnEnemyWave(GameObject[] prefabs, int amount, float minScale, float maxScale, GameObject player) {
         int init_amount = amount;
 
         for (int i = 0; i < amount; i++) {
@@ -41,10 +41,10 @@ public class RayMapGen : MonoBehaviour {
                 continue;
             }
 
-            if (hit.point.x < 2f && hit.point.x > -2f) {
+            if (hit.point.x < player.transform.position.x + 5f && hit.point.x > player.transform.position.x -5f) {
                 continue;
             }
-            if (hit.point.z < 2f && hit.point.z > -2f) {
+            if (hit.point.z < player.transform.position.x + 5f && hit.point.z > player.transform.position.x -5f) {
                 continue;
             }
 
@@ -85,12 +85,6 @@ public class RayMapGen : MonoBehaviour {
 
         foreach (GameObject obj in remove_objects) {
             DestroyImmediate(obj);
-        }
-    }
-
-    public void Clear() {
-        while (transform.childCount != 0) {
-            DestroyImmediate(transform.GetChild(0).gameObject);
         }
     }
 }
