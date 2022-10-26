@@ -5,8 +5,8 @@ using UnityEditor;
 using System.IO;
 
 public class RayMapGen : MonoBehaviour {
-    [SerializeField] private int map_width;
-    [SerializeField] private int map_height;
+    private int map_width = 12;
+    private int map_height = 12;
     [SerializeField] private GameObject[] prefabs;
     [SerializeField] private int amount;
     [SerializeField] private float minScale;
@@ -22,10 +22,11 @@ public class RayMapGen : MonoBehaviour {
 
     public void GenerateMap() {
         Clear();
-        scatterPrefabs();
+        scatterPrefabs(prefabs, amount, minScale, maxScale);
     }
     
-    public void scatterPrefabs() {
+    // Add all SerlializedFields as parameters
+    public void scatterPrefabs(GameObject[] prefabs, int amount, float minScale, float maxScale) {
         int init_amount = amount;
 
         for (int i = 0; i < amount; i++) {
