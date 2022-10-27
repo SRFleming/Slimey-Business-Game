@@ -30,17 +30,19 @@ public class SpawnEnemies : MonoBehaviour {
     public void Start() {
         SpawnEnemyWave(enemies, amount, minScale, maxScale, player);
         Spawned = true;
+        DefeatedCheck();
     }
 
-    /*private IEnumerator DefeatedCheck()
-    {
-        int x=1;
-        while (x=0);
-        {
-            yield return new WaitForSeconds(0.5f); // Not blocking!
-            Defeated = true;
+
+
+    private IEnumerator DefeatedCheck() {
+        print(Defeated);
+        while (enemies[0] == null) {
+            yield return new WaitForSeconds(1f);
         }
-    } */
+        Defeated = true;
+        print(Defeated);
+    }
 
 
     public void SpawnEnemyWave(GameObject[] prefabs, int amount, float minScale, float maxScale, GameObject player) {
