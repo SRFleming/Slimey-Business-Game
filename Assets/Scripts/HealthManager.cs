@@ -6,10 +6,12 @@ public class HealthManager : MonoBehaviour
     [SerializeField] private int startingHealth = 100;
     [SerializeField] private UnityEvent onDeath;
     [SerializeField] private UnityEvent<float> onHealthChanged;
-    public ParticleSystem deathEffect;
 
-    private int _currentHealth;
+    public ParticleSystem deathEffect;
+    public HealthBar healthBar;
+
     private Quaternion damageDirection;
+    private int _currentHealth;
 
     private int CurrentHealth
     {
@@ -26,6 +28,9 @@ public class HealthManager : MonoBehaviour
                 dEffect.transform.rotation = damageDirection;
                 dEffect.transform.position = this.transform.position;
                 Destroy(gameObject);
+            }
+            if(gameObject.tag == "Player"){
+                healthBar.SetHealth(_currentHealth);
             }
         }
     }
