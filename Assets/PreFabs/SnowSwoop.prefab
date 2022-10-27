@@ -136,11 +136,12 @@ GameObject:
   m_Component:
   - component: {fileID: 4000012323953278}
   - component: {fileID: 95000010230734170}
-  - component: {fileID: 3203682284258716428}
   - component: {fileID: 6820455603452329046}
+  - component: {fileID: -8471729901858105945}
+  - component: {fileID: 2594138936431598750}
   m_Layer: 0
-  m_Name: Ghost_White
-  m_TagString: Untagged
+  m_Name: SnowSwoop
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -182,24 +183,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &3203682284258716428
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1000011659465104}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0b53753e8f00b26489848ac4b23f6b85, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  minWaitTime: 0
-  maxWaitTime: 0
-  speed: 0
-  damage: 0
-  damageCooldown: 0
-  damageTag: 
 --- !u!143 &6820455603452329046
 CharacterController:
   m_ObjectHideFlags: 0
@@ -211,13 +194,51 @@ CharacterController:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Height: 2
-  m_Radius: 0.5
-  m_SlopeLimit: 45
-  m_StepOffset: 0.3
-  m_SkinWidth: 0.08
+  m_Height: 0.04
+  m_Radius: 0.011
+  m_SlopeLimit: 0
+  m_StepOffset: 0
+  m_SkinWidth: 0.005
   m_MinMoveDistance: 0.001
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: 0, y: 0.02, z: 0}
+--- !u!114 &-8471729901858105945
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1000011659465104}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 910faa2f6ecd6cd40883ab14e653a23c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startingHealth: 120
+  onDeath:
+    m_PersistentCalls:
+      m_Calls: []
+  onHealthChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  deathEffect: {fileID: 1391671984890573727, guid: 12685901efa57bf42a32c88143fe19e7, type: 3}
+--- !u!114 &2594138936431598750
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1000011659465104}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b53753e8f00b26489848ac4b23f6b85, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minWaitTime: 2
+  maxWaitTime: 3
+  speed: 30
+  damage: 20
+  damageCooldown: 0.5
+  damageTag: Player
 --- !u!1 &1000011867156646
 GameObject:
   m_ObjectHideFlags: 0
