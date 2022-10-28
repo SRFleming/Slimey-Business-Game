@@ -56,6 +56,8 @@ public class WaveManager : MonoBehaviour
             yield return new WaitUntil(() => this._currentWave.Defeated);
             this.waveDefeated.Invoke(waveNumber);
             
+            yield return new WaitForSeconds(3f);
+            
             // Destroy old swarm object - no need to keep it around!
             Destroy(this._currentWave.gameObject);
             

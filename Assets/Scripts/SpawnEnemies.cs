@@ -11,6 +11,7 @@ public class SpawnEnemies : MonoBehaviour {
     public bool autoUpdate {get; private set;} = true;
 
     private List<GameObject> remove_objects = new List<GameObject>();
+    private List<GameObject> aliveEnemies = new List<GameObject>();
 
 
     // Find out how to pipe all of these parameters in from a different script. 
@@ -22,28 +23,26 @@ public class SpawnEnemies : MonoBehaviour {
     [SerializeField] public float minScale;
     [SerializeField] public float maxScale;
     [SerializeField] public int amount;
-
+    private bool levelComplete;
+    private int defeatCount;
 
     public bool Spawned { get; private set; }
     public bool Defeated { get; private set; }
     
     public void Start() {
+        levelComplete = false;
         SpawnEnemyWave(enemies, amount, minScale, maxScale, player);
         Spawned = true;
-        DefeatedCheck();
     }
 
 
 
-    private IEnumerator DefeatedCheck() {
-        print(Defeated);
-        while (enemies[0] == null) {
-            yield return new WaitForSeconds(1f);
+    public void Update(){
+        this.aliveEnemies.RemoveAll(enemy => enemy == null);
+        if(aliveEnemies.Count == 0){
+            Defeated = true;
         }
-        Defeated = true;
-        print(Defeated);
     }
-
 
     public void SpawnEnemyWave(GameObject[] prefabs, int amount, float minScale, float maxScale, GameObject player) {
         int init_amount = amount;
@@ -95,6 +94,9 @@ public class SpawnEnemies : MonoBehaviour {
                         }
                     }
                 }
+            }
+            if(instantiatedPrefab){
+                aliveEnemies.Add(instantiatedPrefab);
             }
         }
 

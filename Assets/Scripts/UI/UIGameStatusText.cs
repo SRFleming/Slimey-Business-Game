@@ -9,7 +9,6 @@ public class UIGameStatusText : MonoBehaviour
 {
     [SerializeField] private TMP_Text text;
     [SerializeField] private TMP_Text subText;
-    [SerializeField] private string[] complements;
 
     public void GetReady(int waveNumber)
     {
@@ -18,8 +17,7 @@ public class UIGameStatusText : MonoBehaviour
 
     public void WaveDefeated(int waveNumber)
     {
-        SetText(this.complements[(waveNumber - 1) % this.complements.Length],
-            "Wave " + waveNumber + " cleared");
+        SetText("Wave " + waveNumber + " cleared");
     }
     
     public void Win()

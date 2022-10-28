@@ -32,15 +32,7 @@ public class PlayerController : MonoBehaviour
         moveDirectionZ = Input.GetAxisRaw("Vertical");
         cC.Move(new Vector3(moveDirectionX, 0, moveDirectionZ) * speed * speedMultiplier * Time.deltaTime);
         transform.position = new Vector3(transform.position.x, 0, transform.position.z);
-
-        Vector3 positionToLookAt;
-        positionToLookAt.x = moveDirectionX;
-        positionToLookAt.y = 0.0f;
-        positionToLookAt.z = moveDirectionZ;
-        Quaternion currentRotation = transform.rotation;
-        Quaternion targetRotation = Quaternion.LookRotation(positionToLookAt);
-        transform.rotation = Quaternion.Slerp(currentRotation, targetRotation, roatationFactorPerFrame);
-
+        
         if ((moveDirectionX != 0 || moveDirectionZ != 0)) {
             animator.SetBool("isRunning", true);
         } else {
