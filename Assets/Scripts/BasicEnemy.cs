@@ -18,6 +18,9 @@ public class BasicEnemy : MonoBehaviour
     }
 
     void Update(){
+        if (player == null) {
+            return;
+        }
         Vector3 direction = Vector3.Normalize(player.position - transform.position);
         cC.Move(direction*speed*Time.deltaTime);
         transform.position = new Vector3(transform.position.x, 0, transform.position.z);

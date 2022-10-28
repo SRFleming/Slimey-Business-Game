@@ -34,7 +34,9 @@ public class SwoopEnemy : MonoBehaviour
 
     private void Update()
     {
-
+        if (player == null) {
+            return;
+        }
         if (this.state == EnemyState.Idle)
         {
             cC.Move(Vector3.zero);

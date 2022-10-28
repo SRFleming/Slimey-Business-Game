@@ -77,4 +77,8 @@ public class PlayerController : MonoBehaviour
         speedMultiplier += m;
     }
 
+    public void DestroyGameObject()
+    {
+        Destroy(this);
+    }
 }

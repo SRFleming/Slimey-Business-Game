@@ -3,6 +3,7 @@
 
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class UIGameStatusText : MonoBehaviour
 {
@@ -29,6 +30,7 @@ public class UIGameStatusText : MonoBehaviour
     public void Lose()
     {
         SetText("You died!","Sorry...");
+        Invoke("Death", 2.0f);
     }
 
     public void Clear()
@@ -40,5 +42,8 @@ public class UIGameStatusText : MonoBehaviour
     {
         this.text.SetText(text);
         this.subText.SetText(subText);
+    }
+    private void Death () {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex * 0);
     }
 }
