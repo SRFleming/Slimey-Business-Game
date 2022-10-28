@@ -12,8 +12,7 @@ GameObject:
   - component: {fileID: 7589001269577498383}
   - component: {fileID: 4187627444244620375}
   - component: {fileID: 3328308910926167473}
-  - component: {fileID: 7385110594158722018}
-  - component: {fileID: 466208145993586821}
+  - component: {fileID: 9032896583921825006}
   m_Layer: 0
   m_Name: rifle_bullet_1
   m_TagString: Untagged
@@ -28,14 +27,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5481131208548253871}
-  m_LocalRotation: {x: -0.00000003774895, y: -1.1102229e-16, z: 1.11022296e-16, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
   m_LocalPosition: {x: -0, y: 0, z: 0}
   m_LocalScale: {x: 4, y: 4, z: 4}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
 --- !u!33 &7589001269577498383
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -100,20 +99,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   velocity: {x: 0, y: 0, z: 0}
   damageTag: Enemy
---- !u!114 &7385110594158722018
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5481131208548253871}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e8d3a64141cca74fafe270cf8e511a4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!136 &466208145993586821
-CapsuleCollider:
+--- !u!65 &9032896583921825006
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -122,7 +109,6 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
-  m_Radius: 0.1832546
-  m_Height: 0.06305833
-  m_Direction: 0
+  serializedVersion: 2
+  m_Size: {x: 0.064430125, y: 5, z: 0.3665092}
   m_Center: {x: -0.0022112625, y: 0.0022651237, z: 0.042607747}
