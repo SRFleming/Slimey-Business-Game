@@ -64,6 +64,7 @@ public class WaveManager : MonoBehaviour
         }
         
         // Player has won - no more waves!
+        print(waves);
         this.allWavesDefeated.Invoke();
     }
 }

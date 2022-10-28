@@ -1363,7 +1363,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 910faa2f6ecd6cd40883ab14e653a23c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startingHealth: 70
+  startingHealth: 90
   onDeath:
     m_PersistentCalls:
       m_Calls: []
@@ -1371,6 +1371,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   deathEffect: {fileID: 1391671984890573727, guid: 12685901efa57bf42a32c88143fe19e7, type: 3}
+  healthBar: {fileID: 0}
 --- !u!1 &1000013911567934
 GameObject:
   m_ObjectHideFlags: 0

@@ -23,14 +23,12 @@ public class SpawnEnemies : MonoBehaviour {
     [SerializeField] public float minScale;
     [SerializeField] public float maxScale;
     [SerializeField] public int amount;
-    private bool levelComplete;
     private int defeatCount;
 
     public bool Spawned { get; private set; }
     public bool Defeated { get; private set; }
     
     public void Start() {
-        levelComplete = false;
         SpawnEnemyWave(enemies, amount, minScale, maxScale, player);
         Spawned = true;
     }
