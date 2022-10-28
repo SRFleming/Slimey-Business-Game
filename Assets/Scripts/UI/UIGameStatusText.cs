@@ -1,4 +1,4 @@
-﻿// COMP30019 - Graphics and Interaction
+// COMP30019 - Graphics and Interaction
 // (c) University of Melbourne, 2022
 
 using TMPro;
@@ -29,8 +29,9 @@ public class UIGameStatusText : MonoBehaviour
     
     public void Lose()
     {
-        SetText("You died!","Sorry...");
-        Invoke("Death", 2.0f);
+        SetText("You died!","L + Bozo + Ratio + Cancelled + You suck doggy doo doo");
+
+        Invoke("Death", 5.0f);
     }
 
     public void Clear()
