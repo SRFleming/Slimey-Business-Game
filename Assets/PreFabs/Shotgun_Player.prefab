@@ -136,7 +136,8 @@ MonoBehaviour:
   onHealthChanged:
     m_PersistentCalls:
       m_Calls: []
-  deathEffect: {fileID: 0}
+  deathEffect: {fileID: 1391671984890573727, guid: 2454e5b3fbcea8e41afc09d48278a497, type: 3}
+  healthBar: {fileID: 0}
 --- !u!1001 &141685901198732795
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -334,7 +335,8 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7723013798209106596, guid: 01d77fd69396c614ea4a371d26316452, type: 3}
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 3389422188200123168, guid: 01d77fd69396c614ea4a371d26316452, type: 3}
       insertIndex: -1
@@ -367,5 +369,5 @@ MonoBehaviour:
   bulletSpeed: 15
   fireCooldown: 0.2
   numProjectiles: 5
-  damage: 0
+  damage: 20
   automatic: 0

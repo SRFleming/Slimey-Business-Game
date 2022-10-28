@@ -17,8 +17,8 @@ public class DamagePowerUp : MonoBehaviour
     void Pickup(GameObject player)
     {
         player.GetComponent<PlayerController>().AddDamageMulti(0.25f);
-        Instantiate(particles);
-        particles.transform.position = transform.position;
+        ParticleSystem effect = Instantiate(particles);
+        effect.transform.position = transform.position;
         Destroy(gameObject);
     }
 }
