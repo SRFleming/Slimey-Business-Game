@@ -23,6 +23,10 @@ public class ProjectileController : MonoBehaviour
     private void Update()
     {
         transform.Translate(this.velocity * Time.deltaTime);
+        remTime -= Time.deltaTime;
+        if(remTime <= 0){
+            Destroy(gameObject);
+        }
     }
     private void OnTriggerEnter(Collider col)
     {   

@@ -13,10 +13,12 @@ public class WaveManager : MonoBehaviour
     [SerializeField] private UnityEvent<int> waveIncoming;
     [SerializeField] private UnityEvent<int> waveSpawned;
     [SerializeField] private UnityEvent<int> waveDefeated;
-    [SerializeField] private UnityEvent allWavesDefeated;
-
+    
+    private GameObject gameManager;
+    private NextLevel nextLevel;
     private Queue<SpawnEnemies> _nextWaves;
     private SpawnEnemies _currentWave;
+    public UnityEvent allWavesDefeated;
 
     private void Awake()
     {
@@ -26,10 +28,14 @@ public class WaveManager : MonoBehaviour
         this._nextWaves = new Queue<SpawnEnemies>(this.waves);
         foreach (var wave in this._nextWaves)
             wave.gameObject.SetActive(false);
+        
     }
 
     private void Start()
     {
+        gameManager = GameObject.Find("GameManager");
+        nextLevel = gameManager.GetComponent<NextLevel>();
+        allWavesDefeated.AddListener(nextLevel.goToNextLevel);
         StartCoroutine(WaveSequence());
     }
 
