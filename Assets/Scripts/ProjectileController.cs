@@ -6,11 +6,6 @@ public class ProjectileController : MonoBehaviour
     [SerializeField] private string damageTag;
     private int damage;
 
-    private void Update()
-    {
-        transform.Translate(this.velocity * Time.deltaTime);
-    }
-
     public void SetVelocity(Vector3 v){
         this.velocity = v;
     }
@@ -19,6 +14,10 @@ public class ProjectileController : MonoBehaviour
         this.damage = d;
     }
      
+    private void Update()
+    {
+        transform.Translate(this.velocity * Time.deltaTime);
+    }
     private void OnTriggerEnter(Collider col)
     {
         if(col.gameObject.tag == damageTag){
