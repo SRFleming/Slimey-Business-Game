@@ -26,7 +26,7 @@ RenderSettings:
   m_AmbientIntensity: 1
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 909048778}
+  m_SkyboxMaterial: {fileID: 862692684}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -6320,24 +6320,7 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3836581064361698930, guid: a524090786e7ba545bd5ce3d24c9a3fb, type: 3}
   m_PrefabInstance: {fileID: 862139799}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &908811275 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3405331504230959319, guid: ba65f75c00efc934faaa764378794060, type: 3}
-  m_PrefabInstance: {fileID: 1520651188}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &908811279
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 908811275}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3679b14f64f18fa40b4bb6f3cb080836, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!21 &909048778
+--- !u!21 &862692684
 Material:
   serializedVersion: 8
   m_ObjectHideFlags: 0
@@ -6686,6 +6669,23 @@ Material:
     - _Vector1: {r: 0, g: 1, b: 1, a: 0}
     - _water: {r: 0.5, g: 0.5, b: 0.5, a: 1}
   m_BuildTextureStacks: []
+--- !u!1 &908811275 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3405331504230959319, guid: ba65f75c00efc934faaa764378794060, type: 3}
+  m_PrefabInstance: {fileID: 1520651188}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &908811279
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 908811275}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3679b14f64f18fa40b4bb6f3cb080836, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &911278126
 GameObject:
   m_ObjectHideFlags: 0
@@ -13771,8 +13771,8 @@ MonoBehaviour:
   enemies:
   - {fileID: 7605239018300874488, guid: 3de127c8188ccb1429af9465a9941957, type: 3}
   - {fileID: 1000013849561652, guid: 5f5835e7768be2d45ad6f02136b7966a, type: 3}
-  minScale: 500
-  maxScale: 700
+  minScale: 120
+  maxScale: 200
   amount: 20
 --- !u!1 &1780213806
 GameObject:
