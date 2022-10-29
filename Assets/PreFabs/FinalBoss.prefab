@@ -140,7 +140,7 @@ GameObject:
   - component: {fileID: -8471729901858105945}
   - component: {fileID: 2594138936431598750}
   m_Layer: 0
-  m_Name: SnowSwoop
+  m_Name: FinalBoss
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -213,7 +213,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 910faa2f6ecd6cd40883ab14e653a23c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startingHealth: 90
+  startingHealth: 3000
   onDeath:
     m_PersistentCalls:
       m_Calls: []
@@ -236,8 +236,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   minWaitTime: 2
   maxWaitTime: 3
-  speed: 30
-  damage: 20
+  speed: 20
+  damage: 40
   damageCooldown: 0.5
   damageTag: Player
 --- !u!1 &1000011867156646

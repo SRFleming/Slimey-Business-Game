@@ -398,7 +398,7 @@ GameObject:
   - component: {fileID: 7604522680608817028}
   - component: {fileID: -4443241150691744696}
   m_Layer: 0
-  m_Name: ForestBasic
+  m_Name: DesertLittleBasics
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -453,7 +453,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 910faa2f6ecd6cd40883ab14e653a23c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startingHealth: 70
+  startingHealth: 10
   onDeath:
     m_PersistentCalls:
       m_Calls: []
@@ -475,8 +475,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
-  speed: 8
-  damage: 5
+  speed: 10
+  damage: 2
   damageCooldown: 0.5
   damageTag: Player
 --- !u!143 &-4443241150691744696
@@ -580,7 +580,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: d6a1f0e1963add14bb2658c510969934, type: 2}
+  - {fileID: 2100000, guid: 34ed69aa6bba2c144ab35c115118a86c, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

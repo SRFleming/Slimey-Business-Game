@@ -20,16 +20,23 @@ public class UIGameStatusText : MonoBehaviour
         SetText("Wave " + waveNumber + " cleared");
     }
     
+    public void FinalBoss()
+    {
+        SetText("THIS IS THE FINAL BOSS", "Hope you are prepared");
+    }
+
     public void Win()
     {
-        SetText("You won!","That was... anticlimactic?");
+        SetText("You won!","Those slimes were innocent and you slaughtered them");
+        
+        Invoke("BacktoMenu", 5.0f);
     }
     
     public void Lose()
     {
         SetText("You died!","L + Bozo + Ratio + Cancelled + You suck doggy doo doo");
 
-        Invoke("Death", 5.0f);
+        Invoke("BacktoMenu", 5.0f);
     }
 
     public void Clear()
@@ -42,7 +49,7 @@ public class UIGameStatusText : MonoBehaviour
         this.text.SetText(text);
         this.subText.SetText(subText);
     }
-    private void Death () {
+    private void BacktoMenu () {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex * 0);
     }
 }

@@ -35,7 +35,7 @@ public class WaveManager : MonoBehaviour
     {
         gameManager = GameObject.Find("GameManager");
         nextLevel = gameManager.GetComponent<NextLevel>();
-        allWavesDefeated.AddListener(nextLevel.goToNextLevel);
+        //allWavesDefeated.AddListener(nextLevel.goToNextLevel);
         StartCoroutine(WaveSequence());
     }
 
