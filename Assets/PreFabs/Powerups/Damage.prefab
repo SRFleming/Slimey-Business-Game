@@ -73,6 +73,7 @@ GameObject:
   - component: {fileID: 1654621791131990071}
   - component: {fileID: 1654621791131990066}
   - component: {fileID: 1654621791131990067}
+  - component: {fileID: 1361963077093822438}
   m_Layer: 0
   m_Name: Damage
   m_TagString: Untagged
@@ -178,3 +179,15 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1361963077093822438
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1654621791131990070}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 945f719b7b49b9d42874f75df0b07a9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

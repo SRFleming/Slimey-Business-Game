@@ -90,7 +90,6 @@ Shader "Unlit/CellShaderColor"
                 rNdotL = smoothstep(0,0.01,NdotL*shadow);
 
                 // specular reflection component of the lighting using the blinn phong lighting model
-                // _Glossiness
                 float3 halfV = normalize(lightDirection + i.viewDir);
                 float NdotH = dot(normal, halfV);
                 float specular = pow(NdotH*rNdotL, _Glossiness*_Glossiness);
