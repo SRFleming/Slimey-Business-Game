@@ -5,14 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class NextLevel : MonoBehaviour
 {
-    void Start(){
-        DontDestroyOnLoad(gameObject);
-    }
-
     public void goToNextLevel () {
-        if(SceneManager.GetActiveScene().buildIndex == 3){
-            Debug.Log("Win!!!");
-        }
-        else{SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);}
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 }

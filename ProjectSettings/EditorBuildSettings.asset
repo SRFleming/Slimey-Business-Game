@@ -16,5 +16,8 @@ EditorBuildSettings:
     guid: 7c4ba9e6677314af5979dedbeb1fb4a9
   - enabled: 1
     path: Assets/SnowMap.unity
+    guid: 8a37457756fab9b418b103782fb381f6
+  - enabled: 1
+    path: Assets/BossMap.unity
     guid: 568e68a95c2754a95bbb7dc8af03a8eb
   m_configObjects: {}
