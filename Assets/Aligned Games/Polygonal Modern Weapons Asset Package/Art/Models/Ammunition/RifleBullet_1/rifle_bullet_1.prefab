@@ -99,7 +99,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   velocity: {x: 0, y: 0, z: 0}
   damageTag: Enemy
-  damageTag2: Boss
 --- !u!65 &9032896583921825006
 BoxCollider:
   m_ObjectHideFlags: 0

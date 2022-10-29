@@ -32,11 +32,6 @@ public class HealthManager : MonoBehaviour
             if(gameObject.tag == "Player"){
                 healthBar.SetHealth(_currentHealth);
             }
-
-            if(gameObject.tag == "Boss"){
-                healthBar.SetHealth(_currentHealth);
-            }
-
         }
     }
 

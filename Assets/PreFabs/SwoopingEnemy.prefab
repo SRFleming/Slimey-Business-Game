@@ -395,10 +395,10 @@ GameObject:
   - component: {fileID: 7603911166706580918}
   - component: {fileID: 7555126027730897806}
   - component: {fileID: 7604522680608817031}
-  - component: {fileID: 5590391225647450376}
   - component: {fileID: -4443241150691744696}
+  - component: {fileID: 3611275609210842549}
   m_Layer: 0
-  m_Name: SnowBasic
+  m_Name: SwoopingEnemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -453,7 +453,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 910faa2f6ecd6cd40883ab14e653a23c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startingHealth: 120
+  startingHealth: 20
   onDeath:
     m_PersistentCalls:
       m_Calls: []
@@ -461,24 +461,6 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   deathEffect: {fileID: 1391671984890573727, guid: 12685901efa57bf42a32c88143fe19e7, type: 3}
-  healthBar: {fileID: 0}
---- !u!114 &5590391225647450376
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7605239018300874488}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 948a4433169417a4b9f735238e62ce25, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player: {fileID: 0}
-  speed: 12
-  damage: 9
-  damageCooldown: 0.5
-  damageTag: Player
 --- !u!143 &-4443241150691744696
 CharacterController:
   m_ObjectHideFlags: 0
@@ -497,6 +479,24 @@ CharacterController:
   m_SkinWidth: 0.005
   m_MinMoveDistance: 0
   m_Center: {x: 0, y: 0.02, z: 0.001}
+--- !u!114 &3611275609210842549
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7605239018300874488}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b53753e8f00b26489848ac4b23f6b85, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minWaitTime: 2
+  maxWaitTime: 3
+  speed: 30
+  damage: 20
+  damageCooldown: 0.5
+  damageTag: Player
 --- !u!1 &7605239018327454196
 GameObject:
   m_ObjectHideFlags: 0

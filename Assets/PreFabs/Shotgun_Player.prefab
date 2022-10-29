@@ -92,7 +92,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db08cf51a19cae64b9d82ec30b060a7c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 15
+  speed: 10
   projectilePrefab: {fileID: 5903902575725225036, guid: 674b373550812f743a3973d5bca1c4bb, type: 3}
   playerModel: {fileID: 952009129833828522}
   damageMultiplier: 0

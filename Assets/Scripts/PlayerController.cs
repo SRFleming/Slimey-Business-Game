@@ -12,6 +12,7 @@ public class PlayerController : MonoBehaviour
     private Animator animator;
     private Vector3 aimDirection = Vector3.forward;
     private float moveDirectionX, moveDirectionZ, aimAngle;
+    float roatationFactorPerFrame = 15.0f;
     
     private void Start()
     {

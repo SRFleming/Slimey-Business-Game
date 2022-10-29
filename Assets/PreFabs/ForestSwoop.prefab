@@ -1329,8 +1329,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   minWaitTime: 2
   maxWaitTime: 3
-  speed: 20
-  damage: 15
+  speed: 30
+  damage: 20
   damageCooldown: 0.5
   damageTag: Player
 --- !u!143 &5074486616240960092
@@ -1363,7 +1363,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 910faa2f6ecd6cd40883ab14e653a23c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startingHealth: 50
+  startingHealth: 90
   onDeath:
     m_PersistentCalls:
       m_Calls: []

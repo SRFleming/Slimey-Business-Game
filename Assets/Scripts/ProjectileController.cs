@@ -4,7 +4,6 @@ public class ProjectileController : MonoBehaviour
 {
     [SerializeField] private Vector3 velocity;
     [SerializeField] private string damageTag;
-    [SerializeField] private string damageTag2;
     private int damage;
     private float time = 3f;
     private float remTime;
@@ -31,7 +30,7 @@ public class ProjectileController : MonoBehaviour
     }
     private void OnTriggerEnter(Collider col)
     {   
-        if(col.gameObject.tag == damageTag || col.gameObject.tag == damageTag2){
+        if(col.gameObject.tag == damageTag){
             var healthManager = col.gameObject.GetComponent<HealthManager>();
             healthManager.ApplyImpactDamage(this.damage, this.transform.rotation);
         }
