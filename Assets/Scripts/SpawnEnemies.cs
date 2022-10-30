@@ -44,8 +44,8 @@ public class SpawnEnemies : MonoBehaviour {
 
     public void SpawnEnemyWave(GameObject[] prefabs, int amount, float minScale, float maxScale, GameObject player) {
         int init_amount = amount;
-
-        for (int i = 0; i < amount; i++) {
+        GameObject[] os = GameObject.FindGameObjectsWithTag("Terrain");
+        while (amount > 0) {
             float sampleX = Random.Range(-map_width*scatter_area_scale, map_width*scatter_area_scale);
             float sampleY = Random.Range(-map_height*scatter_area_scale, map_height*scatter_area_scale);
 
@@ -55,10 +55,10 @@ public class SpawnEnemies : MonoBehaviour {
                 continue;
             }
 
-            if (hit.point.x < player.transform.position.x + 5f && hit.point.x > player.transform.position.x -5f) {
+            if (hit.point.x < player.transform.position.x + 3f && hit.point.x > player.transform.position.x -3f) {
                 continue;
             }
-            if (hit.point.z < player.transform.position.x + 5f && hit.point.z > player.transform.position.x -5f) {
+            if (hit.point.z < player.transform.position.x + 3f && hit.point.z > player.transform.position.x -3f) {
                 continue;
             }
 
@@ -70,31 +70,21 @@ public class SpawnEnemies : MonoBehaviour {
             instantiatedPrefab.transform.localRotation = Quaternion.Euler(new Vector3(0, Random.Range(0f, 360f), 0));
             instantiatedPrefab.transform.parent = this.transform;
 
-            // Checking for intersections with any children
-            if (transform.childCount > 1) {
-                for (int x = 0; x < transform.childCount-1; x++) {
-                    if (instantiatedPrefab.GetComponentInChildren<Collider>().bounds.Intersects(transform.GetChild(x).GetComponentInChildren<Collider>().bounds)) {
-                        remove_objects.Add(instantiatedPrefab);
-                        amount += 1;
-                    }
-                }      
-            }
-            
-            // Checking for intersections for all siblings.
-            if (transform.parent.childCount > 1 && transform.parent is not null) {
-                for (int c = 0; c < transform.parent.childCount; c++) {
-                    if (c != transform.GetSiblingIndex()) {
-                        for (int j = 0; j < transform.parent.GetChild(c).childCount; j++) {
-                            if (instantiatedPrefab.GetComponentInChildren<Collider>().bounds.Intersects(transform.parent.GetChild(c).GetChild(j).GetComponentInChildren<Collider>().bounds)) {
-                                remove_objects.Add(instantiatedPrefab);
-                                amount += 1;
-                            }
-                        }
-                    }
+            bool sect = false;
+            foreach(GameObject o in os){
+                if (instantiatedPrefab.GetComponentInChildren<Collider>().bounds.Intersects(o.GetComponent<Collider>().bounds)) {
+                    remove_objects.Add(instantiatedPrefab);
+                    sect = true;
+                    break;
                 }
             }
+            if (sect){
+                continue;
+            }
+
             if(instantiatedPrefab){
                 aliveEnemies.Add(instantiatedPrefab);
+                amount -= 1;
             }
         }
 

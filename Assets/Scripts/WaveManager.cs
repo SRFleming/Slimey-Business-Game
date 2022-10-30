@@ -42,16 +42,16 @@ public class WaveManager : MonoBehaviour
     private IEnumerator WaveSequence()
     {
         var waveNumber = 0;
-        
+
         while (this._nextWaves.Count > 0)
         {
             this._currentWave = this._nextWaves.Dequeue();
-            this._currentWave.gameObject.SetActive(true);
             waveNumber += 1;
             
             this.waveIncoming.Invoke(waveNumber);
 
             yield return new WaitForSeconds(this.nextWaveDelay);
+            this._currentWave.gameObject.SetActive(true);
 
             // Setting current wave object to active invokes its Start() method
             // thus spawning the wave. Wait until all spawning completes.

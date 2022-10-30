@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4000014095175406}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: rWingTailControl3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -41,7 +41,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4000013934569596}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: lWingControl2 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -73,7 +73,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4000011348476480}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: RIG
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -105,7 +105,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4000013460372326}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: rWingTailControl2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -137,7 +137,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4000010098532836}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: rWing5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -168,7 +168,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4000013805909468}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: lWingControl7
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -200,7 +200,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4000011079538336}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: rWingTair
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -231,7 +231,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4000013989288936}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: rWing2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -263,7 +263,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4000013812427674}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: lWingControl2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -297,7 +297,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4000011267610702}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: lWingTail3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -328,7 +328,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4000010543861470}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: lWingControl3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -360,7 +360,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4000013830762496}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: rWingRoot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -392,7 +392,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4000013589006110}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: rWing
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -424,7 +424,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4000013273551626}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: rWing3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -456,7 +456,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4000013519229430}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: lWing2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -488,7 +488,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4000011305153112}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: NoseJoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -520,7 +520,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4000013112456750}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: lWingTail2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -551,7 +551,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4000012946062266}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: rWingTair3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -582,7 +582,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4000011739737992}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: rWing4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -614,7 +614,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4000011005955022}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: lWing5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -645,7 +645,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4000010532413388}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: lWingControl4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -676,7 +676,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4000010912337986}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: lWing3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -708,7 +708,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4000010031794664}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: lWingControl8
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -739,7 +739,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4000011000342870}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: HeadControl
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -772,7 +772,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4000013183673702}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: lWingControl5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -805,7 +805,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4000011670026618}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: rWingTair2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -836,7 +836,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4000010597759388}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: lWingRoot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -868,7 +868,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4000011570745426}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: lWingRootControl
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -900,7 +900,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4000010630804220}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: RootJoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -934,7 +934,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4000014257258410}
   - component: {fileID: 137000010031494726}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Mesh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1040,7 +1040,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4000012646614104}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: HeadJoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1073,7 +1073,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4000013491797950}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: lWingControl6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1107,7 +1107,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4000013415439210}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: lWing4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1139,7 +1139,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4000010476869780}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: NoseTipJoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1170,7 +1170,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4000012160585418}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: rWingTailControl
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1202,7 +1202,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4000012894108188}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Bat1Control
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1236,7 +1236,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4000011513017772}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: NoseControl
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1271,7 +1271,7 @@ GameObject:
   - component: {fileID: -6797836037202065515}
   - component: {fileID: 5074486616240960092}
   - component: {fileID: 8701873376045685115}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: DesertSwoop
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -1381,7 +1381,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4000012104893822}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: lWingTail
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1412,7 +1412,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4000014014656020}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: lWingControl9
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1444,7 +1444,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4000012448429436}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: lWingRootControl1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1476,7 +1476,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4000012830716788}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: lWingControl 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1508,7 +1508,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4000011353136558}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: lWingControl
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1541,7 +1541,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4000010500359546}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: lWing
   m_TagString: Untagged
   m_Icon: {fileID: 0}
