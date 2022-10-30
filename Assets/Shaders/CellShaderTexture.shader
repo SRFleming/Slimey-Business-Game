@@ -79,14 +79,13 @@ Shader "Unlit/CellShaderTexture"
             {
                 float3 normal = normalize(i.normal);
                 float3 lightDirection = normalize(_WorldSpaceLightPos0);
-
+                float shadow = SHADOW_ATTENUATION(i);// for using unity's built in shadows
+                
                 // diffuse component of lighting, restricted to lit or unlit for cel shading effect
-                float shadow = SHADOW_ATTENUATION(i);
                 float NdotL = dot(lightDirection,normal);
-                float rNdotL;
-                if(NdotL < 0) {rNdotL = 0;}
-                else {rNdotL = 1;}
-                rNdotL = smoothstep(0,0.01,NdotL*shadow);
+                //if diffuse intensity < 0.005, = 0, if > 0.01, = 1, values inbetween are smoothed out (edges blend better)
+                //this is also used for specular and rim lighting to apply the light intensity restriction
+                float rNdotL = smoothstep(0,0.01,NdotL*shadow);
 
                 // specular reflection component of the lighting using the blinn phong lighting model
                 float3 halfV = normalize(lightDirection + i.viewDir);

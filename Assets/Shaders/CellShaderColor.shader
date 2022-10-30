@@ -84,16 +84,15 @@ Shader "Unlit/CellShaderColor"
 
                 // diffuse component of lighting, restricted to two values for cel shading effect
                 float NdotL = dot(lightDirection,normal);
-                float rNdotL;
-                if(NdotL < 0) {rNdotL = 0;}
-                else {rNdotL = 1;}
-                rNdotL = smoothstep(0,0.01,NdotL*shadow);
+                //if diffuse intensity < 0.005, = 0, if > 0.01, = 1, values inbetween are smoothed out (edges blend better)
+                //this is also used for specular and rim lighting to apply the light intensity restriction
+                float rNdotL = smoothstep(0,0.01,NdotL*shadow);
 
                 // specular reflection component of the lighting using the blinn phong lighting model 
                 float3 halfV = normalize(lightDirection + i.viewDir);
                 float NdotH = dot(normal, halfV);
                 float specular = pow(NdotH*rNdotL, _Glossiness*_Glossiness);
-                specular = smoothstep(0.005,0.01,specular);
+                specular = smoothstep(0.005,0.01,specular); 
 
                 // lighting on the rim around the edge of an object, gives 
                 float4 rimDot = 1 - dot(i.viewDir, normal);
