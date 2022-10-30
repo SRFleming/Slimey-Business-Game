@@ -58,7 +58,10 @@ public class PlayerController : MonoBehaviour
         if (weapon.automatic){
           if (Input.GetMouseButton(0)){ weapon.Shoot(damageMultiplier, aSpeedMultiplier); }  
         }
-        else if (Input.GetMouseButtonDown(0)){ weapon.Shoot(damageMultiplier, aSpeedMultiplier); }
+        else if (Input.GetMouseButtonDown(0))
+        { 
+            weapon.Shoot(damageMultiplier, aSpeedMultiplier); 
+        }
     }
 
     public void AddDamageMulti(float m){

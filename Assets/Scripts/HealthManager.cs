@@ -6,7 +6,9 @@ public class HealthManager : MonoBehaviour
     [SerializeField] private int startingHealth = 100;
     [SerializeField] private UnityEvent onDeath;
     [SerializeField] private UnityEvent<float> onHealthChanged;
-
+    private GameObject PlayerDeath;
+    private GameObject EnemyKilled;
+    public ParticleSystem Win;
     public ParticleSystem deathEffect;
     public HealthBar healthBar;
 
@@ -24,6 +26,18 @@ public class HealthManager : MonoBehaviour
             if (CurrentHealth <= 0)
             {
                 this.onDeath.Invoke();
+                if(gameObject.tag == "Player"){
+                PlayerDeath = GameObject.Find("Sounds");
+                PlayerDeath.GetComponent<PlaySounds>().PlayDeath();
+                }
+                if(gameObject.tag == "Enemy"){
+                EnemyKilled = GameObject.Find("Sounds");
+                EnemyKilled.GetComponent<PlaySounds>().PlayEnemyKilled();
+                }
+                if(gameObject.tag == "Boss"){
+                EnemyKilled = GameObject.Find("Sounds");
+                EnemyKilled.GetComponent<PlaySounds>().PlayWin();
+                }
                 ParticleSystem dEffect = Instantiate(deathEffect);
                 dEffect.transform.rotation = damageDirection;
                 dEffect.transform.position = this.transform.position;
