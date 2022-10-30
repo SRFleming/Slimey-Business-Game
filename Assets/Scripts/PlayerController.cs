@@ -11,6 +11,7 @@ public class PlayerController : MonoBehaviour
     public Weapon weapon; 
     private Animator animator;
     private Vector3 aimDirection = Vector3.forward;
+    private Vector3 normalizedmovement;
     private float moveDirectionX, moveDirectionZ, aimAngle;
     
     private void Start()
@@ -29,7 +30,9 @@ public class PlayerController : MonoBehaviour
         // moves player based off input, chooses animation
         moveDirectionX = Input.GetAxisRaw("Horizontal");
         moveDirectionZ = Input.GetAxisRaw("Vertical");
-        cC.Move(new Vector3(moveDirectionX, 0, moveDirectionZ) * speed * speedMultiplier * Time.deltaTime);
+        normalizedmovement = new Vector3(moveDirectionX, 0, moveDirectionZ);
+        normalizedmovement.Normalize();
+        cC.Move(normalizedmovement * speed * speedMultiplier * Time.deltaTime);
         transform.position = new Vector3(transform.position.x, 0, transform.position.z);
         
         if ((moveDirectionX != 0 || moveDirectionZ != 0)) {
