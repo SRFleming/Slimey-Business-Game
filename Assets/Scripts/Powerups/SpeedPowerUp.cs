@@ -19,7 +19,7 @@ public class SpeedPowerUp : MonoBehaviour
 
     void Pickup(GameObject player)
     {   
-        player.GetComponent<PlayerController>().AddSpeedMulti(0.5f);
+        player.GetComponent<PlayerController>().AddSpeedMulti(0.35f);
         ParticleSystem effect = Instantiate(particles);
         effect.transform.position = transform.position;
         Destroy(gameObject);

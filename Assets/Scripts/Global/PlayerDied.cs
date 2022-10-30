@@ -6,6 +6,6 @@ using UnityEngine.SceneManagement;
 public class PlayerDied : MonoBehaviour
 {
     public void Death () {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex * 0);
+        SceneManager.LoadScene(0);
     }
 }
