@@ -1327,8 +1327,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b53753e8f00b26489848ac4b23f6b85, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minWaitTime: 2
-  maxWaitTime: 3
+  minWaitTime: 1.5
+  maxWaitTime: 2
   speed: 20
   damage: 15
   damageCooldown: 0.5
