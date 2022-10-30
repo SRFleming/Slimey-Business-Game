@@ -1325,7 +1325,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 8e0f4d8b703d5f04481560f63802a960, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.2
+  m_Volume: 0.25
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -1424,11 +1424,6 @@ Transform:
   m_Father: {fileID: 1800229527}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &221915718 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 711708154942545506, guid: 0faab71f5012a9148a89ffd3ac1019a4, type: 3}
-  m_PrefabInstance: {fileID: 953478075}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &580560567
 GameObject:
   m_ObjectHideFlags: 0
@@ -1657,7 +1652,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: ee929803debf6a24690e5c71b8e2eb8a, type: 3}
+  m_audioClip: {fileID: 8300000, guid: b1d56088d25405449b3e79ebee11e807, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 0.4
   m_Pitch: 1
@@ -2804,35 +2799,6 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 711708154942545507, guid: 0faab71f5012a9148a89ffd3ac1019a4, type: 3}
   m_PrefabInstance: {fileID: 953478075}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1620253856
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 221915718}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Delegates:
-  - eventID: 0
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 0}
-          m_TargetAssemblyTypeName: 
-          m_MethodName: 
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: 
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
 --- !u!1 &1701271590
 GameObject:
   m_ObjectHideFlags: 0
