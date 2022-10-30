@@ -3,6 +3,7 @@ using UnityEngine;
 public class Weapon : MonoBehaviour
 {   
     public GameObject projectilePrefab;
+    private GameObject ShootSound;
     public Transform muzzle;
     public float bulletSpeed, fireCooldown;
     public int numProjectiles;
@@ -19,6 +20,8 @@ public class Weapon : MonoBehaviour
     public void Shoot(float damageMultiplier, float aSpeedMultiplier)
     {   
         if(currentCooldown <= 0.0f){
+            ShootSound = GameObject.Find("Sounds");
+            ShootSound.GetComponent<PlaySounds>().PlayShoot();
             if(numProjectiles>1){
                 Vector3 bulletAngle = Quaternion.Euler(0, -(numProjectiles/2)*10, 0)*Vector3.forward;
                 for(int i=0; i < numProjectiles; i++){
