@@ -1,15 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class ASpeedPowerUp : MonoBehaviour
 {
+    private GameObject HUD;
     public ParticleSystem particles;
 
     private void OnTriggerEnter(Collider col)
     {
         if (col.CompareTag("Player"))
         {
+            HUD = GameObject.Find("HUD");
+            HUD.GetComponent<UIGameStatusText>().AttackSpeedUp();
             Pickup(col.gameObject);
         }
     }

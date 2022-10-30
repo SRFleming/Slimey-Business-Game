@@ -4,12 +4,15 @@ using UnityEngine;
 
 public class SpeedPowerUp : MonoBehaviour
 {
+    private GameObject HUD;
     public ParticleSystem particles;
 
     private void OnTriggerEnter(Collider col)
     {
         if (col.CompareTag("Player"))
         {
+            HUD = GameObject.Find("HUD");
+            HUD.GetComponent<UIGameStatusText>().SpeedUp();
             Pickup(col.gameObject);
         }
     }

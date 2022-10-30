@@ -39,6 +39,27 @@ public class UIGameStatusText : MonoBehaviour
         Invoke("BacktoMenu", 5.0f);
     }
 
+    public void AttackSpeedUp()
+    {
+        SetText("Attack Speed Up!");
+        Invoke("Clear", 2.0f);
+
+    }
+
+    public void SpeedUp()
+    {
+        SetText("Speed Up!");
+        Invoke("Clear", 2.0f);
+
+    }
+
+    public void DamageUp()
+    {
+        SetText("Damage Up!");
+        Invoke("Clear", 2.0f);
+
+    }
+
     public void Clear()
     {
         SetText("");
