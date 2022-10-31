@@ -6,7 +6,10 @@
 ## Teamwork plan/summary
 
 <!-- [[StartTeamworkPlan]] PLEASE LEAVE THIS LINE UNTOUCHED -->
+### Game plan
+
 General plan below, though this does not mean team members will be strictly working in their given areas: 
+
 * Lucas:  shading + procedural generation 
 * Sebastian: sound design + Level design
 * Yannick: modeling + character animation
@@ -16,6 +19,25 @@ Report to be worked on by all members, with each member writing primarily about 
 We will be holding weekly retrospective team meetings. Here we will assess progress made from the last meeting and assign tasks for the upcoming week. 
 Our main focus will be to complete the main game until the 16th of October and then introduce changes and updates based on
 feedback after. Furthermore, time after the 16th will be allocated to write the final report. 
+
+### Gameplay video
+
+As the deadline for the gameplay video was pushed to the 18th of October, our initial gameplan was changed. Lucas and Yannick worked on the project the 
+most in the early stages, creating the intital map design, procedual generation and other gameplay releated scripts. Jenny worked on creating a simple 
+character alongside Lucas, however Lucas' solution were used. After this, Sebastian made the game play video and uploaded it within the deadline. 
+
+### Final submission
+
+After the gameplay video was submitted, our roles shifted. Lucas' main responsibility was to create the shaders, as the initial plan was. He also created 
+particle systems and contributed to the wave management, enemy spawning and level switching code/unity scenes. Sebastians main responsibilty was no the 
+wave management system, the boss fight, the scene switching interactions. He also created HUD notifications (text for new waves and collected power-ups)
+and a main menu. Yannick's main task was to continue working on the maps, and update the procedural generation script. Jenny's responsibility was now the 
+report and query. She was also helping on the coding when needed and requested. 
+
+### Summary 
+
+As a result of this project we have created a functioning game, that we are very proud of. In addition to the techincal skills, we have learned how to 
+work in a team, and draw from eachothers strengths. 
 
 <!-- [[EndTeamworkPlan]] PLEASE LEAVE THIS LINE UNTOUCHED -->
 
