@@ -114,7 +114,7 @@ more control over the final design of the map and allowed us to completely remov
 gave us unappealing results, so we decided to switch our approach and change the algorithm.
 
 <p align="center">
-  <img src="Gifs/perlin_noise.png">
+  <img src="Gifs/maps_raycast.png">
 </p>
 
 As can be seen in Figure 4, scattering our handmade tiles creates a more repetitive looking environment. Although a limited amount of tiles also 
@@ -127,7 +127,7 @@ one object being deleted due to collisions is very small. This algorithm instant
 random locations throughout the map.
 
 <p align="center">
-  <img src="Gifs/maps_raycast.png">
+  <img src="Gifs/perlin_noise.png">
 </p>
 
 It is worth mentioning that the map borders are not part of the procedurally generated area. These were handcrafted to avoid ugly-looking or even faulty 
