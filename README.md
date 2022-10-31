@@ -28,7 +28,16 @@ character alongside Lucas, however Lucas' solution were used. After this, Sebast
 
 ### Final submission
 
-After the gameplay video was submitted, our roles shifted. Lucas' main responsibility was to design the shaders, as per the initial plan. He also developed the particle systems and contributed to the wave management, enemy spawning and level switching scripts/unity scenes. Sebastians main responsibilty was the wave management system, the boss fight, the scene switching interactions. He also created HUD notifications (text for new waves and collected power-ups) and a main menu. Yannick's main task was to continue working on the maps, and update the procedural generation scripts. Jenny's responsibility was now the report and query. She was also helping on the coding when needed and requested. 
+After the gameplay video was submitted, our roles shifted. Lucas' main 
+responsibility was to design the shaders, as per the initial plan. He also 
+developed the particle systems and contributed to the wave management, enemy 
+spawning and level switching scripts/unity scenes. Sebastians main responsibilty
+was the wave management system, the boss fight, the scene switching 
+interactions. He also created HUD notifications (text for new waves and 
+collected power-ups) and a main menu. Yannick's main task was to continue 
+working on the maps, and update the procedural generation scripts. Jenny's 
+responsibility was now the report and query. She was also helping on the coding 
+when needed and requested. 
 
 ### Summary 
 
@@ -39,7 +48,12 @@ work in a team, and draw from eachothers strengths.
 
 ## Final report
 
-“Slimey Business: The Slimeaggeddon” was developed as Project 2 for 30019 Graphics and Interactions at the University of Melbourne. It is a single-player, top-down shooter created using C# in the Unity3D game engine. This report will summarise the game, including information about the game's storyline and core mechanics. In addition, we will go into detail about our processes of creating the game, including but not limited to, the design of the objects and textures, the custom shaders, the procedural generation algorithm and the particle system implemented. Finally, we will also describe our querying and observational testing methods and the changes that we made from the feedback that we gathered.
+“Slimey Business: The Slimeaggeddon” was developed as Project 2 for 30019 Graphics and Interactions at the University of Melbourne. It is a single-player, top-down shooter created using C# in the Unity3D game engine. This report will 
+summarise the game, including information about the game's storyline and core mechanics. In addition, we will go into detail about our processes of creating 
+the game, including but not limited to, the design of the objects and textures, 
+the custom shaders, the procedural generation algorithm and the particle system 
+implemented. Finally, we will also describe our querying and observational 
+testing methods and the changes that we made from the feedback that we gathered.
 
 ### Table of contents
 * [Game Summary](#game-summary)
@@ -52,7 +66,14 @@ work in a team, and draw from eachothers strengths.
 ### Game Summary
 The development of “Slimey Business: The Slimeaggeddon” started with deciding what type of game we wanted to make. Our final decision fell on a simple shooting game, where the protagonist will fight against waves of attacking monsters. 
 
-The main storyline behind the game is simple; defend yourself to survive. It starts with the player waking up in the middle of a forest, surrounded by slimes and other evil creatures. The main character suffers from memory loss and cannot remember how he got there. Suddenly, the character feels as if the gun wants to send him a message, a warning of danger in his surroundings. The character must pick up a weapon and defend himself to survive. The player will experience waves of enemies, with increasing difficulty. After he has defeated the enemies in the forest, the journey continues to the desert and finally to the snowy mountains. At the top of the mountain the player must defeat the boss to win the game.
+The main storyline behind the game is simple; defend yourself to survive. It starts with the player waking up in the middle of a forest, surrounded by slimes 
+and other evil creatures. The main character suffers from memory loss and cannot
+remember how he got there. Suddenly, the character feels as if the gun wants to 
+send him a message, a warning of danger in his surroundings. The character must 
+pick up a weapon and defend himself to survive. The player will experience waves 
+of enemies, with increasing difficulty. After he has defeated the enemies in the 
+forest, the journey continues to the desert and finally to the snowy mountains. 
+At the top of the mountain the player must defeat the boss to win the game.
  
 
 The WASD keys control the movement of the character while the mouse controls the rotation of the player and thus the aim of the gun. Players can left click to shoot the gun. Power-ups are scattered across each map and can be picked up to increase damage, speed or attack speed for that map.
@@ -68,9 +89,17 @@ Project is created with:
 #### CHARACTER AND ENEMY DEVELOPMENT
 
 For the design and development of the main character, we chose to implement an asset from Unity Asset Store. To fit the low poly style of the game, we 
-decided to use the “Low Poly Human - RPG Character” asset pack by Blink (Blink, 2022). The character came with pre-developed animations. For our game, the only implementation necessary was the animation “RunForward”. The model switches between the Idle and RunForward states to move around on the map.  The character also has a weapon object that has customisable fields, such as number of projectiles, fire rate, whether it is automatic and how much damage it deals.
+decided to use the “Low Poly Human - RPG Character” asset pack by Blink (Blink, 
+2022). The character came with pre-developed animations. For our game, the 
+only implementation necessary was the animation “RunForward”. The model switches
+ between the Idle and RunForward states to move around on the map.  The 
+character also has a weapon object that has customisable fields, such as number of projectiles, fire rate, whether it is automatic and how much damage it 
+deals.
 
-The various enemies are taken from the “Level 1 Monster Pack” by PI Entertainment Limited on the Unity Asset Store (PI Entertainment Limited, 2017). From this pack, we chose the slime, bat and ghost models to represent the enemies in-game. There are two different types of enemy scripts, the basic enemy, which simply chases the player and the swooping enemy, which flies at the player at high speed every few seconds. 
+The various enemies are taken from the “Level 1 Monster Pack” by PI Entertainment Limited on the Unity Asset Store (PI Entertainment Limited, 2017).
+From this pack, we chose the slime, bat and ghost models to represent the 
+enemies in-game. There are two different types of enemy scripts, the basic 
+enemy, which simply chases the player and the swooping enemy, which flies at the player at high speed every few seconds. 
 
 <p align="center">
   <img src="Gifs/enemies.png" width="600">
@@ -81,7 +110,13 @@ The various enemies are taken from the “Level 1 Monster Pack” by PI Entertai
 
 #### OBJECTS, TEXTURES AND ENTITIES
 
-As we were restricted to 500mb of asset space, we mixed and matched a variety of low-poly assets from the Unity Asset Store to create the map (trees, rocks, grass, terrain), the player model, power-ups, and enemy models. We chose models that matched the cartoonish direction we were going for, and similarly based our textures and materials on bright and glossy colours. Later on we thought about our art direction when implementing our cel shader, which we will go into more detail in a later section. We tried using a few other -more realistic- textures, but they did not fit the cartoonish low poly style we were going for, so we reverted back to plain colours. 
+As we were restricted to 500mb of asset space, we mixed and matched a variety of low-poly assets from the Unity Asset Store to create the map (trees, rocks, 
+grass, terrain), the player model, power-ups, and enemy models. We chose models
+that matched the cartoonish direction we were going for, and similarly based our textures and materials on bright and glossy colours. Later on we thought about 
+our art direction when implementing our cel shader, which we will go into more 
+detail in a later section. We tried using a few other -more realistic- textures,
+but they did not fit the cartoonish low poly style we were going for, so we 
+reverted back to plain colours. 
 
 #### PROCEDURAL GENERATION
 
