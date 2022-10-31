@@ -28,11 +28,7 @@ character alongside Lucas, however Lucas' solution were used. After this, Sebast
 
 ### Final submission
 
-After the gameplay video was submitted, our roles shifted. Lucas' main responsibility was to create the shaders, as the initial plan was. He also created 
-particle systems and contributed to the wave management, enemy spawning and level switching code/unity scenes. Sebastians main responsibilty was no the 
-wave management system, the boss fight, the scene switching interactions. He also created HUD notifications (text for new waves and collected power-ups)
-and a main menu. Yannick's main task was to continue working on the maps, and update the procedural generation script. Jenny's responsibility was now the 
-report and query. She was also helping on the coding when needed and requested. 
+After the gameplay video was submitted, our roles shifted. Lucas' main responsibility was to design the shaders, as per the initial plan. He also developed the particle systems and contributed to the wave management, enemy spawning and level switching scripts/unity scenes. Sebastians main responsibilty was the wave management system, the boss fight, the scene switching interactions. He also created HUD notifications (text for new waves and collected power-ups) and a main menu. Yannick's main task was to continue working on the maps, and update the procedural generation scripts. Jenny's responsibility was now the report and query. She was also helping on the coding when needed and requested. 
 
 ### Summary 
 
@@ -43,11 +39,7 @@ work in a team, and draw from eachothers strengths.
 
 ## Final report
 
-“Slimey Business: The Slimeaggeddon” was developed as Project 2 for 30019 Graphics and Interactions at the University of Melbourne. It is a single-player,
-top-down shooter created using C# in the Unity3D game engine. This report will summarise the game, including the information game’s storyline and core
-mechanics. In addition, we will go into detail about our processes of creating the game, including, but not limited to, the design of the objects and
-textures, the custom shaders, the procedural generation algorithm and the particle system implemented. Finally, we will also describe our querying and
-observational testing methods and the changes made from the gathered feedback.
+“Slimey Business: The Slimeaggeddon” was developed as Project 2 for 30019 Graphics and Interactions at the University of Melbourne. It is a single-player, top-down shooter created using C# in the Unity3D game engine. This report will summarise the game, including information about the game's storyline and core mechanics. In addition, we will go into detail about our processes of creating the game, including but not limited to, the design of the objects and textures, the custom shaders, the procedural generation algorithm and the particle system implemented. Finally, we will also describe our querying and observational testing methods and the changes that we made from the feedback that we gathered.
 
 ### Table of contents
 * [Game Summary](#game-summary)
@@ -58,17 +50,12 @@ observational testing methods and the changes made from the gathered feedback.
 * [References](#references)
 
 ### Game Summary
-The development of “Slimey Business: The Slimeaggeddon” started with deciding what type of game we wanted to make. Our final decision fell on a simple
-shooting game, where the protagonist will fight against attacking monsters. 
+The development of “Slimey Business: The Slimeaggeddon” started with deciding what type of game we wanted to make. Our final decision fell on a simple shooting game, where the protagonist will fight against waves of attacking monsters. 
 
-The main storyline behind the game is simple; defend yourself to survive. The game starts with the player waking up in the middle of a forest, surrounded
-by slimes and other evil creatures. The main character suffers from memory loss and cannot remember how he got there. Suddenly, the character feels as if
-the gun wants to send him a message, a warning of danger in his surroundings. The character must pick up a weapon and defend himself to survive. The player
-will experience waves of enemies with increasing difficulty. After he has defeated the enemies in the forest, the journey continues to the desert and a
-winter land. Finally, the player must defeat the main boss to complete the game. 
+The main storyline behind the game is simple; defend yourself to survive. It starts with the player waking up in the middle of a forest, surrounded by slimes and other evil creatures. The main character suffers from memory loss and cannot remember how he got there. Suddenly, the character feels as if the gun wants to send him a message, a warning of danger in his surroundings. The character must pick up a weapon and defend himself to survive. The player will experience waves of enemies, with increasing difficulty. After he has defeated the enemies in the forest, the journey continues to the desert and finally to the snowy mountains. At the top of the mountain the player must defeat the boss to win the game.
+ 
 
-The player has to control the movement using the WASD keys to control the main character. In addition, the mouse is used to aim while shooting with a left
-click.
+The WASD keys control the movement of the character while the mouse controls the rotation of the player and thus the aim of the gun. Players can left click to shoot the gun. Power-ups are scattered across each map and can be picked up to increase damage, speed or attack speed for that map.
 
 ### Technologies
 Project is created with:
@@ -99,11 +86,7 @@ the player and the swooping enemy, which flies at the player at high speed every
 
 #### OBJECTS, TEXTURES AND ENTITIES
 
-We have created a low poly-style environment for our game. We made this choice based on our more simplistic idea for looks and efficiently fulfilling the
-performance requirements. Therefore, we have used a variety of low poly assets from the Unity Asset Store as our primary game objects. We used these game
-objects to create the map itself, the player model, power-ups, and enemy models. To further enhance this feeling, we based our textures and materials on
-flat but glossy colours. This was also done to fit the aesthetics of our implemented cel shader, which is described in a later section. We tried using a
-few more realistic textures, but they did not fit the low poly style, which made us revert to the plain colours. 
+As we were restricted to 500mb of asset space, we mixed and matched a variety of low-poly assets from the Unity Asset Store to create the map (trees, rocks, grass, terrain), the player model, power-ups, and enemy models. We chose models that matched the cartoonish direction we were going for, and similarly based our textures and materials on bright and glossy colours. Later on we thought about our art direction when implementing our cel shader, which we will go into more detail in a later section. We tried using a few other -more realistic- textures, but they did not fit the cartoonish low poly style we were going for, so we reverted back to plain colours. 
 
 #### PROCEDURAL GENERATION
 
@@ -208,19 +191,13 @@ powerup picked up. All particle systems can be found at project-2-tony-pizza/Ass
 
 ### Query and observational methods
 
-A requirement for this project was to include at least one querying technique. Our solution was to have the users play the game while implementing the
-Think Aloud observational method. After the user has finished the game, we will perform an interview based on a mixture of open and closed questions. We
-chose these methods, as the results will be easy to interpret and compare, without restricting the depth of the results (Goncalves, 2022).  
+A requirement for this project was to include at least one querying technique. Our solution was to have the users play the game while implementing the Think Aloud observational method. After the user finished the game, we performed an interview based on a mixture of open and closed questions. We chose these methods, as the results would be easy to interpret and compare, without restricting the depth of our results.  
 
-Our main focus with this query will be the game’s usability, as it will provide us with information about the playability of the game. The target audience
-for this query will be teenagers/young adults, who play video games regularly. The person will not have any knowledge about the game beforehand, in order
-to give an honest and unbiased evaluation of the game. 
+Our main focus of our querying was the game’s usability, as the results would provide us with information about the playability of the game. Our target demographic for our game would be children, teenagers and young adults, and as such we found testing participants who were in our target demographic. Our participants should not have any knowledge about our game before testing, so that they are able to give an honest and unbiased evaluation of the game. 
 
 #### Think aloud
 
-With this technique, the user will play the game once. He or she will start the game and play it through until they win, or their character dies, without
-any input from the interviewer. While they are playing, the user should vocalise their thoughts, which will be noted by the interviewer (Goncalves, 2022).
-These notes will be written in section Results.
+During our testing sessions the user will be allowed to play the game once. He or she will start the game and play until they win or their character dies, without any input from the interviewer. While they are playing, the user should vocalise their thoughts, which will be noted by the interviewer. These notes can be found in section 5.3 Results.
 
 #### Interview 
 
