@@ -55,6 +55,7 @@ observational testing methods and the changes made from the gathered feedback.
 * [Design](#design)
 * [Graphics](#graphics)
 * [Query and observational methods](#query-and-observational-methods)
+* [Referencea](#references)
 
 ### Game Summary
 The development of “Slimey Business: The Slimeaggeddon” started with deciding what type of game we wanted to make. Our final decision fell on a simple
@@ -79,13 +80,20 @@ Project is created with:
 
 #### CHARACTER AND ENEMY DEVELOPMENT
 
-For the design and development of the main character, we chose to implement an asset from Unity Asset Store. To fit the low poly style of the game, the
-decision fell on “Low Poly Human - RPG Character” by Blink (reference, year). In addition, as the game requires the player to use a weapon, the character
-holds a rifle that shoots bullets. The character came with developed animations. For our game, the only implementation necessary was the animation
-RunForward. With the controller WASD, the character switches between the Idle and RunForward states to move around on the map. 
+For the design and development of the main character, we chose to implement an asset from Unity Asset Store. To fit the low poly style of the game, we 
+decided to use the “Low Poly Human - RPG Character” asset pack by Blink. The character came with pre-developed animations. For our game, the only 
+implementation necessary was the animation “RunForward”. The model switches between the Idle and RunForward states to move around on the map.  The 
+character also has a weapon object that has customisable fields, such as number of projectiles, fire rate, whether it is automatic and how much damage it 
+deals.
 
-The different enemies implemented in the game are downloaded from the “Level 1 Monster Pack” by PI Entertainment Limited from Unity Asset Store. From this
-pack, we used the slime, bat and ghost to create the enemies in the game. 
+The various enemies are taken from the “Level 1 Monster Pack” by PI Entertainment Limited on the Unity Asset Store (see references). We chose the slime, 
+bat and ghost models from this pack to represent the enemies in-game. There are two types of enemy scripts, the basic enemy, which chases the player and 
+the swooping enemy, which flies at the player at high speed every few seconds. 
+
+<p align="center">
+  <img src="Gifs/enemies.png" width="600">
+</p>
+
 
 #### OBJECTS, TEXTURES AND ENTITIES
 
@@ -97,24 +105,33 @@ few more realistic textures, but they did not fit the low poly style, which made
 
 #### PROCEDURAL GENERATION
 
-We have created two different algorithms to procedurally generate the playable area for all three of our map types. This allows us to create new maps for
-each playthrough of the game. Both algorithms are based on the idea of randomly scattering objects like trees, rocks and grass or handmade tiles to build
-a map. 
+We employed two different algorithms to procedurally generate the playable area for the three of our different map types. What we wanted with these 
+algorithms was to generate a new map each time a new game is played. Both algorithms were based on the idea of randomly scattering enemies and power-ups 
+as well as objects like trees, rocks and grass or handmade tiles to build a map.
 
-The algorithm we used for the game's final version randomly generates rays in a predefined area and instantiates a random prefab from a given array on the
-point of intersection between the ground plane and the ray. To avoid intersections between previously instantiated objects and the initial player
-position, we ensure only instantiate the object if no collisions occur. Choosing a reasonable amount of game objects to be scattered also ensures the
-creation of fully playable maps. The likelihood of instantiating multiple objects next to each other such that the player does not have access to some
-part of the map is extremely unlikely. 
+The first algorithm we implemented scattered a gameobjects based on a grayscale value from perlin noise. The benefit of this algorithm was that it gave us 
+more control over the final design of the map and allowed us to completely remove the chance of generating a faulty map. Yet the maps we generated often 
+gave us unappealing results, so we decided to switch our approach and change the algorithm.
 
-Furthermore, this algorithm was also used to instantiate both enemies and power-ups at random locations throughout the map.
+<p align="center">
+  <img src="Gifs/perlin_noise.png">
+</p>
 
-The other algorithm we have implemented scatters a range of handmade tiles based on a grayscale value from Perlin noise. The benefit of this algorithm i
-that it gives us more control over the final map design and allows us to remove the chance of generating a faulty map altogether. Yet, due to the ray
-casting approach often giving us more visually pleasing map results, we decided against this algorithm for this project. 
+As can be seen in Figure 4, scattering our handmade tiles creates a more repetitive looking environment. Although a limited amount of tiles also 
+contributes to this look. 
 
-It should also be noted that the map borders are not part of the procedurally generated area. These were handcrafted to avoid unesthetic or faulty borders
-allowing the player to get outside the intended playing field.
+The algorithm we chose to use randomly generates rays in a predefined area and instantiates a random prefab from a given array on the point of 
+intersection between ground plane and ray. To avoid intersections between previously instantiated objects and the initial player position we make sure to 
+only instantiate the object if no collisions occur. Choosing a reasonable amount of gameobjects to be scattered also ensures that the perceived impact of 
+one object being deleted due to collisions is very small. This algorithm instantiates scattered trees, rocks, bushes, grass, enemies and power-ups at 
+random locations throughout the map.
+
+<p align="center">
+  <img src="Gifs/maps_raycast.png">
+</p>
+
+It is worth mentioning that the map borders are not part of the procedurally generated area. These were handcrafted to avoid ugly-looking or even faulty 
+borders that would allow the player to get outside of the intended playing field.
 
 #### IMPACT ON GAMEPLAY
 
@@ -132,9 +149,17 @@ value and anything below the level has zero brightness. This results in flat-loo
 between the two. A flat ambient light value is added to the pixel's brightness, along with similarly restricted specular lighting using the Blinn Phong
 model and rim lighting on lit pixels near the edge of objects.
 
+<p align="center">
+  <img src="Gifs/cel_shader.png" width="600">
+</p>
+
 Flattening each pixel's brightness results in a cartoony, almost 2D look as objects are rendered in sections of uniform colour rather than the smooth
 range of colours seen in most lighting models (see figure x). This cartoon style meshed well with our plain colour and low poly assets to create a simple
 and clean aesthetic for our game.
+
+<p align="center">
+  <img src="Gifs/shader_comparison.png">
+</p>
 
 The other shader we created was our power-up shader (PowerUp), which we used to draw attention and give importance to the various power-ups scattered
 around each map. The first component of our shader causes power-ups to expand and contract over time by multiplying each vector in a given object by the
@@ -185,6 +210,18 @@ As the user has completed the game, they will be asked the five questions below:
 
 #### Results
 
+##### Think Aloud
+
+<p>
+  <img src="Gifs/think_aloud_results.png" width="600">
+</p>
+
+##### Interview
+
+<p>
+  <img src="Gifs/interview_results.png" width="600">
+</p>
+
 #### Analysis of the result 
 
 The overall feedback was positive based on the results obtained during the observation method ‘Think Aloud’ and the interview. The design of the game was
@@ -205,31 +242,3 @@ what power-up they picked up.
 
 For further development, our main wish would be to make the game more interpretable and the storyline easier to understand. We would also like to allow
 the player to change weapons and create a reload system.
-
-
-
-
-### Using Images
-
-You can include images/gifs by adding them to a folder in your repo, currently `Gifs/*`:
-
-<p align="center">
-  <img src="Gifs/sample.gif" width="300">
-</p>
-
-To create a gif from a video you can follow this [link](https://ezgif.com/video-to-gif/ezgif-6-55f4b3b086d4.mov).
-
-### Code Snippets 
-
-You may wish to include code snippets, but be sure to explain them properly, and don't go overboard copying
-every line of code in your project!
-
-```c#
-public class CameraController : MonoBehaviour
-{
-    void Start ()
-    {
-        // Do something...
-    }
-}
-```
