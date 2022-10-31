@@ -95,7 +95,7 @@ Shader "Unlit/CellShaderTexture"
 
                 // lighting on the rim around the edge of an object
                 float4 rimDot = 1 - dot(i.viewDir, normal);
-                rimDot = rimDot * pow(NdotL, _RimThreshold);
+                rimDot = rimDot * pow(NdotL, _RimThreshold); // NdotL used so that only lit edges can have rim
                 rimDot = smoothstep(_RimAmount - 0.01, _RimAmount + 0.01, rimDot);
 
                 fixed4 col = tex2D(_MainTex, i.uv);

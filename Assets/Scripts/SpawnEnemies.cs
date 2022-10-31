@@ -13,11 +13,6 @@ public class SpawnEnemies : MonoBehaviour {
     private List<GameObject> remove_objects = new List<GameObject>();
     private List<GameObject> aliveEnemies = new List<GameObject>();
 
-
-    // Find out how to pipe all of these parameters in from a different script. 
-    // Should be able to call SpawnEnemyWave with all parameters whenever from gameStateManager
-
-    // It is furthermore important that the script is put on a null with the map GameObjects as siblings to check intersections
     [SerializeField] public GameObject player;
     [SerializeField] public GameObject[] enemies;
     [SerializeField] public float minScale;
@@ -34,7 +29,7 @@ public class SpawnEnemies : MonoBehaviour {
     }
 
 
-
+    // removes dead enemies from list until wave is defeated
     public void Update(){
         this.aliveEnemies.RemoveAll(enemy => enemy == null);
         if(aliveEnemies.Count == 0){
@@ -44,7 +39,7 @@ public class SpawnEnemies : MonoBehaviour {
 
     public void SpawnEnemyWave(GameObject[] prefabs, int amount, float minScale, float maxScale, GameObject player) {
         int init_amount = amount;
-        GameObject[] os = GameObject.FindGameObjectsWithTag("Terrain");
+        GameObject[] terrain = GameObject.FindGameObjectsWithTag("Terrain");
         while (amount > 0) {
             float sampleX = Random.Range(-map_width*scatter_area_scale, map_width*scatter_area_scale);
             float sampleY = Random.Range(-map_height*scatter_area_scale, map_height*scatter_area_scale);
@@ -55,10 +50,10 @@ public class SpawnEnemies : MonoBehaviour {
                 continue;
             }
 
-            if (hit.point.x < player.transform.position.x + 3f && hit.point.x > player.transform.position.x -3f) {
+            if (hit.point.x < player.transform.position.x + 5f && hit.point.x > player.transform.position.x -5f) {
                 continue;
             }
-            if (hit.point.z < player.transform.position.x + 3f && hit.point.z > player.transform.position.x -3f) {
+            if (hit.point.z < player.transform.position.x + 5f && hit.point.z > player.transform.position.x -5f) {
                 continue;
             }
 
@@ -70,8 +65,9 @@ public class SpawnEnemies : MonoBehaviour {
             instantiatedPrefab.transform.localRotation = Quaternion.Euler(new Vector3(0, Random.Range(0f, 360f), 0));
             instantiatedPrefab.transform.parent = this.transform;
 
+            // ensures enemies do not spawn inside terrain
             bool sect = false;
-            foreach(GameObject o in os){
+            foreach(GameObject o in terrain){
                 if (instantiatedPrefab.GetComponentInChildren<Collider>().bounds.Intersects(o.GetComponent<Collider>().bounds)) {
                     remove_objects.Add(instantiatedPrefab);
                     sect = true;
@@ -81,7 +77,7 @@ public class SpawnEnemies : MonoBehaviour {
             if (sect){
                 continue;
             }
-
+            // stores instantiated enemies in a list for death checking
             if(instantiatedPrefab){
                 aliveEnemies.Add(instantiatedPrefab);
                 amount -= 1;

@@ -34,7 +34,7 @@ public class UIGameStatusText : MonoBehaviour
     
     public void Lose()
     {
-        SetText("You died!","L + Bozo + Ratio + Cancelled + You suck doggy doo doo");
+        SetText("You died!");
 
         Invoke("BacktoMenu", 5.0f);
     }
