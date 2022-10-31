@@ -55,7 +55,7 @@ observational testing methods and the changes made from the gathered feedback.
 * [Design](#design)
 * [Graphics](#graphics)
 * [Query and observational methods](#query-and-observational-methods)
-* [Referencea](#references)
+* [References](#references)
 
 ### Game Summary
 The development of “Slimey Business: The Slimeaggeddon” started with deciding what type of game we wanted to make. Our final decision fell on a simple
@@ -92,6 +92,8 @@ the swooping enemy, which flies at the player at high speed every few seconds.
 
 <p align="center">
   <img src="Gifs/enemies.png" width="600">
+  <br>
+  <em>Figure 1: Enemies</em>
 </p>
 
 
@@ -115,6 +117,8 @@ gave us unappealing results, so we decided to switch our approach and change the
 
 <p align="center">
   <img src="Gifs/perlin_noise.png">
+  <br>
+  <em>Figure 2: Procedurally generating map with perlin noise based approach</em>
 </p>
 
 As can be seen in Figure 4, scattering our handmade tiles creates a more repetitive looking environment. Although a limited amount of tiles also 
@@ -128,6 +132,8 @@ random locations throughout the map.
 
 <p align="center">
   <img src="Gifs/maps_raycast.png">
+  <br>
+  <em>Figure 3: Procedurally generated maps with ray casting approach</em>
 </p>
 
 It is worth mentioning that the map borders are not part of the procedurally generated area. These were handcrafted to avoid ugly-looking or even faulty 
@@ -151,6 +157,8 @@ model and rim lighting on lit pixels near the edge of objects.
 
 <p align="center">
   <img src="Gifs/cel_shader.png" width="600">
+  <br>
+  <em>Figure 4: Components added from left to right; diffuse, ambient, specular, rim lighting</em>
 </p>
 
 Flattening each pixel's brightness results in a cartoony, almost 2D look as objects are rendered in sections of uniform colour rather than the smooth
@@ -159,6 +167,8 @@ and clean aesthetic for our game.
 
 <p align="center">
   <img src="Gifs/shader_comparison.png">
+  <br>
+  <em>Figure 5: A sphere using unity’s standard shader vs a sphere using our cel shade</em>
 </p>
 
 The other shader we created was our power-up shader (PowerUp), which we used to draw attention and give importance to the various power-ups scattered
@@ -214,12 +224,16 @@ As the user has completed the game, they will be asked the five questions below:
 
 <p>
   <img src="Gifs/think_aloud_results.png" width="600">
+  <br>
+  <em>Figure 8: Think Aloud notes</em>
 </p>
 
 ##### Interview
 
 <p>
   <img src="Gifs/interview_results.png" width="600">
+  <br>
+  <em>Figure 9: Interview answers</em>
 </p>
 
 #### Analysis of the result 
@@ -242,3 +256,7 @@ what power-up they picked up.
 
 For further development, our main wish would be to make the game more interpretable and the storyline easier to understand. We would also like to allow
 the player to change weapons and create a reload system.
+
+### References 
+
+
