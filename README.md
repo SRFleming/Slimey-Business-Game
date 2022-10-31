@@ -162,7 +162,7 @@ only spawn bats. This provided more order without the waves becoming stale and r
 
 #### Shaders
 
-The first and most impactful shader we created was our cel shader (CelShader(Texture/Color)), which is applied to almost every single material in the game. The core of the shader is simply a blinn phong shading model, but restricted so that anything above a certain level of brightness has a uniform value and anything below the level has zero brightness. This results in flat looking lighting where a pixel is either in shadow or lit with no range between the two. A uniform ambient light value is also added to each pixel's brightness, along with rim lighting on lit pixels near the visible edge of objects.
+The first and most impactful marked shader we created was our cel shader (project-2-tony-pizza/Assets/Shaders/CelShaderTexture.shader), which is applied to almost every single material in the game. The core of the shader is simply a blinn phong shading model, but restricted so that anything above a certain level of brightness has a uniform value and anything below the level has zero brightness. This results in flat looking lighting where a pixel is either in shadow or lit with no range between the two. A uniform ambient light value is also added to each pixel's brightness, along with rim lighting on lit pixels near the visible edge of objects.
 
 <p align="center">
   <img src="Gifs/cel_shader.png" width="600">
@@ -178,7 +178,7 @@ The flattening of each pixel's brightness results in a cartoony, almost 2D look 
   <em>Figure 5: A sphere using unity’s standard shader vs a sphere using our cel shade</em>
 </p>
 
-The other shader we created was our power-up shader (PowerUp), which we used to draw attention and give importance to the various power-ups scattered around each map. The first component of our shader causes power-ups to expand and contract over time by multiplying each vector in a given object by the sine function of time passed.
+The other marked shader we created was our power-up shader (project-2-tony-pizza/Assets/Shaders/PowerUp.shader), which we used to draw attention and give importance to the various power-ups scattered around each map. The first component of our shader causes power-ups to expand and contract over time by multiplying each vector in a given object by the sine function of time passed.
 
 <p align="center">
   <img src="Gifs/power_up1.gif" width="200" height="200"/>
@@ -188,11 +188,11 @@ The other shader we created was our power-up shader (PowerUp), which we used to 
   <em>Figure 6: Left to right; vertex component, pixel component, finished shader</em>
 </p>
 
-The second component of our powerup shader then applies a plasma effect to each pixel of a power-up by taking a secondary noise texture and offsetting it based off of time passed. This noise texture determines the contribution of the plasma colour to the overall colour of each pixel. The plasma colour itself is set to different values for each type of power-up by the PowerupColour script. Custom shaders can be found at project-2-tony-pizza/Assets/Shaders.
+The second component of our powerup shader then applies a plasma effect to each pixel of a power-up by taking a secondary noise texture and offsetting it based off of time passed. This noise texture determines the contribution of the plasma colour to the overall colour of each pixel. The plasma colour itself is set to different values for each type of power-up by the PowerupColour script. 
 
 #### Particle systems
 
-The primary (marked) particle system we created for our game is for enemy deaths (EnemyDeathAngled). We wanted to provide interesting visual feedback rather than having enemies disappear on death as well as make it more satisfying for the player to defeat enemies. 
+The primary (marked) particle system we created for our game is for enemy deaths (project-2-tony-pizza/Assets/ParticleEffects/EnemyDeathAngled.prefab). We wanted to provide interesting visual feedback rather than having enemies disappear on death as well as make it more satisfying for the player to defeat enemies. 
 
 <p align="center">
   <img src="Gifs/particle_effect.gif" width="600">
