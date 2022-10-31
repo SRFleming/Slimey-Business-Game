@@ -81,14 +81,14 @@ Project is created with:
 #### CHARACTER AND ENEMY DEVELOPMENT
 
 For the design and development of the main character, we chose to implement an asset from Unity Asset Store. To fit the low poly style of the game, we 
-decided to use the “Low Poly Human - RPG Character” asset pack by Blink. The character came with pre-developed animations. For our game, the only 
-implementation necessary was the animation “RunForward”. The model switches between the Idle and RunForward states to move around on the map.  The 
+decided to use the “Low Poly Human - RPG Character” asset pack by Blink (Blink, 2022). The character came with pre-developed animations. For our game, the 
+only implementation necessary was the animation “RunForward”. The model switches between the Idle and RunForward states to move around on the map.  The 
 character also has a weapon object that has customisable fields, such as number of projectiles, fire rate, whether it is automatic and how much damage it 
 deals.
 
-The various enemies are taken from the “Level 1 Monster Pack” by PI Entertainment Limited on the Unity Asset Store (see references). We chose the slime, 
-bat and ghost models from this pack to represent the enemies in-game. There are two types of enemy scripts, the basic enemy, which chases the player and 
-the swooping enemy, which flies at the player at high speed every few seconds. 
+The various enemies are taken from the “Level 1 Monster Pack” by PI Entertainment Limited on the Unity Asset Store (PI Entertainment Limited, 2017). We 
+chose the slime, bat and ghost models from this pack to represent the enemies in-game. There are two types of enemy scripts, the basic enemy, which chases
+the player and the swooping enemy, which flies at the player at high speed every few seconds. 
 
 <p align="center">
   <img src="Gifs/enemies.png" width="600">
@@ -210,7 +210,7 @@ powerup picked up. All particle systems can be found at project-2-tony-pizza/Ass
 
 A requirement for this project was to include at least one querying technique. Our solution was to have the users play the game while implementing the
 Think Aloud observational method. After the user has finished the game, we will perform an interview based on a mixture of open and closed questions. We
-chose these methods, as the results will be easy to interpret and compare, without restricting the depth of the results.  
+chose these methods, as the results will be easy to interpret and compare, without restricting the depth of the results (Goncalves, 2022).  
 
 Our main focus with this query will be the game’s usability, as it will provide us with information about the playability of the game. The target audience
 for this query will be teenagers/young adults, who play video games regularly. The person will not have any knowledge about the game beforehand, in order
@@ -219,8 +219,8 @@ to give an honest and unbiased evaluation of the game.
 #### Think aloud
 
 With this technique, the user will play the game once. He or she will start the game and play it through until they win, or their character dies, without
-any input from the interviewer. While they are playing, the user should vocalise their thoughts, which will be noted by the interviewer. These notes will
-be written in section Results.
+any input from the interviewer. While they are playing, the user should vocalise their thoughts, which will be noted by the interviewer (Goncalves, 2022).
+These notes will be written in section Results.
 
 #### Interview 
 
@@ -273,4 +273,44 @@ the player to change weapons and create a reload system.
 
 ### References 
 
+Aligned Games. (2022, October 17). Polygonal Modern Weapons Asset Package (1.5). Unity Asset Store. 
+https://assetstore.unity.com/packages/3d/props/weapons/polygonal-modern-weapons-asset-package-53808
 
+Blink. (2022, April 19). FREE Low Poly Human - RPG Character (1.0). Unity Asset Store. 
+https://assetstore.unity.com/packages/3d/characters/humanoids/fantasy/free-low-poly-human-rpg-character-219979
+
+BMo. (2022, April 1). 5 Minute Top Down Shooter Unity Tutorial. YouTube. https://www.youtube.com/watch?v=LqrAbEaDQzc
+
+BOXOPHOBIC. (2022, June 24). Polyverse Skies | Low Poly Skybox Shaders (2.4.0). Unity Asset Store. 
+https://assetstore.unity.com/packages/vfx/shaders/polyverse-skies-low-poly-skybox-shaders-104017
+
+Brackeys. (2020, February 10). How to make a HEALTH BAR in Unity! YouTube. https://www.youtube.com/watch?v=BLfNP4Sc_iA
+
+Downtown Game Studio. (2022, January 27). Nature Pack - Low Poly Trees & Bushes. Unity Asset Store. 
+https://assetstore.unity.com/packages/3d/vegetation/nature-pack-low-poly-trees-bushes-210184
+
+Goncalves, D. J. (2022, September 12). Lecture15-Evaluation.pdf. Canvas LMS. https://canvas.lms.unimelb.edu.au/courses/126656/pages/lecture-15-evaluation-
+techniques?module_item_id=3943297
+
+Lague, S. (2016). Procedural Landmass Generation. YouTube. https://www.youtube.com/watch?v=wbpMiKiSKm8&list=PLFt_AvWsXl0eBW2EiBtl_sxmDtSgZBxB3
+
+Meutecee. (2008, May 20). Trumpethit03.wav. Freesound. https://freesound.org
+
+PI Entertainment Limited. (2017, January 21). Level 1 Monster Pack (2). Unity Asset Store. 
+https://assetstore.unity.com/packages/3d/characters/creatures/level-1-monster-pack-77703
+
+Pure Poly. (2022, March 2). Free Low Poly Nature Forest (1.1). Unity Asset Store. https://assetstore.unity.com/packages/3d/environments/landscapes/free-
+low-poly-nature-forest-205742
+
+Rastamas. (2022, February 11). Low Poly Powerups. Unity Asset Store. https://assetstore.unity.com/packages/3d/props/low-poly-powerups-212079
+
+Roystan. (2022, October 9). Unity Toon Shader Tutorial. Roystan. Retrieved October 31, 2022, from https://roystan.net/articles/toon-shader/
+
+Runemark Studio. (2020, October 13). POLYDesert (1.1). Unity Asset Store. https://assetstore.unity.com/packages/3d/environments/landscapes/polydesert-
+107196
+
+Voyage - emne. (2022, March 30). Dynamic. YouTube. https://www.youtube.com/watch?v=_ddScWWx8j0
+
+Wikipedia. (2022, October 17). Blinn–Phong reflection model. Wikipedia. https://en.wikipedia.org/wiki/Blinn%E2%80%93Phong_reflection_model
+
+Zable, A. (2022, October 9). COMP30019/Workshop-11. GitHub. https://github.com/COMP30019/Workshop-11
