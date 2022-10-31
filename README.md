@@ -162,11 +162,7 @@ only spawn bats. This provided more order without the waves becoming stale and r
 
 #### Shaders
 
-The first and most impactful shader we created was our cel shader (CelShader(Texture/Color)), which applied to almost every single material in the game.
-The shader calculates the level of diffuse lighting on a pixel. It then restricts it so that anything above a specific brightness level has a constant
-value and anything below the level has zero brightness. This results in flat-looking lighting where a pixel is either in shadow or lit with no range
-between the two. A flat ambient light value is added to the pixel's brightness, along with similarly restricted specular lighting using the Blinn Phong
-model and rim lighting on lit pixels near the edge of objects.
+The first and most impactful shader we created was our cel shader (CelShader(Texture/Color)), which is applied to almost every single material in the game. The core of the shader is simply a blinn phong shading model, but restricted so that anything above a certain level of brightness has a uniform value and anything below the level has zero brightness. This results in flat looking lighting where a pixel is either in shadow or lit with no range between the two. A uniform ambient light value is also added to each pixel's brightness, along with rim lighting on lit pixels near the visible edge of objects.
 
 <p align="center">
   <img src="Gifs/cel_shader.png" width="600">
@@ -174,9 +170,7 @@ model and rim lighting on lit pixels near the edge of objects.
   <em>Figure 4: Components added from left to right; diffuse, ambient, specular, rim lighting</em>
 </p>
 
-Flattening each pixel's brightness results in a cartoony, almost 2D look as objects are rendered in sections of uniform colour rather than the smooth
-range of colours seen in most lighting models (see figure 5). This cartoon style meshed well with our plain colour and low poly assets to create a simple
-and clean aesthetic for our game.
+The flattening of each pixel's brightness results in a cartoony, almost 2D look as objects are rendered in sections of uniform colour rather than the smooth range of colours seen in most lighting models (see figure 2). This cartoon style meshed well with our plain colour and low poly assets to create a simple and clean aesthetic for our game.
 
 <p align="center">
   <img src="Gifs/shader_comparison.png">
@@ -184,9 +178,7 @@ and clean aesthetic for our game.
   <em>Figure 5: A sphere using unity’s standard shader vs a sphere using our cel shade</em>
 </p>
 
-The other shader we created was our power-up shader (PowerUp), which we used to draw attention and give importance to the various power-ups scattered
-around each map. The first component of our shader causes power-ups to expand and contract over time by multiplying each vector in a given object by the
-sine function of time passed.
+The other shader we created was our power-up shader (PowerUp), which we used to draw attention and give importance to the various power-ups scattered around each map. The first component of our shader causes power-ups to expand and contract over time by multiplying each vector in a given object by the sine function of time passed.
 
 <p align="center">
   <img src="Gifs/power_up1.gif" width="200" height="200"/>
@@ -196,14 +188,11 @@ sine function of time passed.
   <em>Figure 6: Left to right; vertex component, pixel component, finished shader</em>
 </p>
 
-The second component of our powerup shader then applies a plasma effect to each pixel of a power-up by taking a secondary noise texture and offsetting it
-based on the time passed. This noise texture determines the plasma colour's contribution to each pixel's overall colour - the plasma colour itself to
-different values for each type of power-up by the PowerupColour script. Custom shaders can be found at project-2-tony-pizza/Assets/Shaders.
+The second component of our powerup shader then applies a plasma effect to each pixel of a power-up by taking a secondary noise texture and offsetting it based off of time passed. This noise texture determines the contribution of the plasma colour to the overall colour of each pixel. The plasma colour itself is set to different values for each type of power-up by the PowerupColour script. Custom shaders can be found at project-2-tony-pizza/Assets/Shaders.
 
 #### Particle systems
 
-The primary (marked) particle system we created for our game is for enemy deaths (EnemyDeathAngled). We wanted to provide interesting visual feedback
-rather than having enemies disappear on death and make it more satisfying for the player to defeat enemies.
+The primary (marked) particle system we created for our game is for enemy deaths (EnemyDeathAngled). We wanted to provide interesting visual feedback rather than having enemies disappear on death as well as make it more satisfying for the player to defeat enemies. 
 
 <p align="center">
   <img src="Gifs/particle_effect.gif" width="600">
@@ -211,13 +200,9 @@ rather than having enemies disappear on death and make it more satisfying for th
   <em>Figure 7: Death effect pre script rotation</em>
 </p>
 
-Upon creation, our particle system emits a single burst of particles that slowly shrink over the next second. The particles have been given a 3D cube
-render, collision and gravity. The HealthManager rotates them to fly in the direction of the killing bullet to make them appear like parts of the enemy
-that have exploded upon death, bouncing off other enemies and surrounding objects. We then added short trails and some rotation to give the particles a
-more explosive feel, resulting in an impactful enemy-death effect.
+Upon creation, our particle system emits a single burst of particles that slowly shrink over the next second. The particles have been given a 3D cube render, collision and gravity and are rotated by the HealthManager to fly in the direction of the killing bullet in order to make them appear like parts of the enemy that have blasted off upon death, bouncing off other enemies and surrounding objects. We then added short trails and some rotation to give the particles a more explosive feel, resulting in an impactful enemy death effect.
 
-The other particle system we created was used to emphasise picking up power-ups and shooting out different coloured particles depending on the type of
-powerup picked up. All particle systems can be found at project-2-tony-pizza/Assets/ParticleEffects.
+The other particle system we created was used to emphasise picking up power-ups and shoots out different coloured particles depending on the type of powerup picked up. All particle systems can be found at project-2-tony-pizza/Assets/ParticleEffects.
 
 ### Query and observational methods
 
