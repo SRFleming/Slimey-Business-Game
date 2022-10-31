@@ -10,14 +10,12 @@ public class SwoopEnemy : MonoBehaviour
     [SerializeField] private float maxWaitTime;
     [SerializeField] private float speed;
     [SerializeField] private int damage;
-    [SerializeField] private float damageCooldown;
     [SerializeField] private string damageTag;
 
     private PlayerController player;
     private CharacterController cC;
     private EnemyState state;
     private Vector3 swoopDirection;
-    private float currentCooldown;
 
     private enum EnemyState {
         Idle,
@@ -28,7 +26,6 @@ public class SwoopEnemy : MonoBehaviour
     {
         this.player = FindObjectOfType<PlayerController>();
         this.cC = GetComponent<CharacterController>();
-        this.currentCooldown = damageCooldown;
         StartCoroutine(AttackPattern());
     }
 
@@ -40,7 +37,7 @@ public class SwoopEnemy : MonoBehaviour
         if (this.state == EnemyState.Idle)
         {
             cC.Move(Vector3.zero);
-            transform.position = new Vector3(transform.position.x, 0, transform.position.z);
+            transform.position = new Vector3(transform.position.x, 0.35f, transform.position.z);
             Vector3 swoopDistance = player.transform.position - this.transform.position;
             this.swoopDirection = swoopDistance.normalized;
             float swoopAngle = Mathf.Atan2(swoopDirection.z, swoopDirection.x)*Mathf.Rad2Deg - 90f;
@@ -49,9 +46,8 @@ public class SwoopEnemy : MonoBehaviour
         else if (this.state == EnemyState.Swoop && this.player)
         {
             cC.Move(new Vector3(swoopDirection.x, 0, swoopDirection.z)*speed*Time.deltaTime);
-            transform.position = new Vector3(transform.position.x, 0, transform.position.z);
+            transform.position = new Vector3(transform.position.x, 0.35f, transform.position.z);
         }
-        currentCooldown -= Time.deltaTime;
 
     }
 
@@ -84,10 +80,10 @@ public class SwoopEnemy : MonoBehaviour
 
     private void OnControllerColliderHit(ControllerColliderHit hit){
         if(hit.gameObject.tag == this.damageTag){
-            if(currentCooldown <= 0){
+            if(hit.gameObject.GetComponent<PlayerController>().currentCooldown <= 0){
+                hit.gameObject.GetComponent<PlayerController>().IFrames();
                 var healthManager = hit.gameObject.GetComponent<HealthManager>();
                 healthManager.ApplyDamage(this.damage);
-                currentCooldown = damageCooldown;
             }
         }
     }

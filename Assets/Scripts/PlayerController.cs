@@ -6,6 +6,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private GameObject projectilePrefab;
     [SerializeField] private GameObject playerModel;
     [SerializeField] private float damageMultiplier, speedMultiplier, aSpeedMultiplier;
+    [SerializeField] private float iCooldown = 0.5f;
     private CharacterController cC;
     private Rigidbody rBody;
     public Weapon weapon; 
@@ -13,7 +14,8 @@ public class PlayerController : MonoBehaviour
     private Vector3 aimDirection = Vector3.forward;
     private Vector3 normalizedmovement;
     private float moveDirectionX, moveDirectionZ, aimAngle;
-    
+    public float currentCooldown;
+
     private void Start()
     {
         damageMultiplier = 1f;
@@ -23,6 +25,7 @@ public class PlayerController : MonoBehaviour
         cC = this.GetComponent<CharacterController>();
         animator = playerModel.GetComponent<Animator>();
         gameObject.tag = "Player";
+        currentCooldown = iCooldown;
     }
     
     private void Update()
@@ -33,7 +36,7 @@ public class PlayerController : MonoBehaviour
         normalizedmovement = new Vector3(moveDirectionX, 0, moveDirectionZ);
         normalizedmovement.Normalize();
         cC.Move(normalizedmovement * speed * speedMultiplier * Time.deltaTime);
-        transform.position = new Vector3(transform.position.x, 0, transform.position.z);
+        transform.position = new Vector3(transform.position.x, 0.1f, transform.position.z);
         
         if ((moveDirectionX != 0 || moveDirectionZ != 0)) {
             animator.SetBool("isRunning", true);
@@ -62,6 +65,9 @@ public class PlayerController : MonoBehaviour
         { 
             weapon.Shoot(damageMultiplier, aSpeedMultiplier); 
         }
+        if (currentCooldown >= 0){
+            currentCooldown -= Time.deltaTime;
+        }
     }
 
     public void AddDamageMulti(float m){
@@ -72,6 +78,10 @@ public class PlayerController : MonoBehaviour
     }
     public void AddSpeedMulti(float m){
         speedMultiplier += m;
+    }
+
+    public void IFrames(){
+        currentCooldown = iCooldown;
     }
 
     public void DestroyGameObject()
