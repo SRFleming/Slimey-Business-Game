@@ -68,14 +68,9 @@ Project is created with:
 #### CHARACTER AND ENEMY DEVELOPMENT
 
 For the design and development of the main character, we chose to implement an asset from Unity Asset Store. To fit the low poly style of the game, we 
-decided to use the “Low Poly Human - RPG Character” asset pack by Blink (Blink, 2022). The character came with pre-developed animations. For our game, the 
-only implementation necessary was the animation “RunForward”. The model switches between the Idle and RunForward states to move around on the map.  The 
-character also has a weapon object that has customisable fields, such as number of projectiles, fire rate, whether it is automatic and how much damage it 
-deals.
+decided to use the “Low Poly Human - RPG Character” asset pack by Blink (Blink, 2022). The character came with pre-developed animations. For our game, the only implementation necessary was the animation “RunForward”. The model switches between the Idle and RunForward states to move around on the map.  The character also has a weapon object that has customisable fields, such as number of projectiles, fire rate, whether it is automatic and how much damage it deals.
 
-The various enemies are taken from the “Level 1 Monster Pack” by PI Entertainment Limited on the Unity Asset Store (PI Entertainment Limited, 2017). We 
-chose the slime, bat and ghost models from this pack to represent the enemies in-game. There are two types of enemy scripts, the basic enemy, which chases
-the player and the swooping enemy, which flies at the player at high speed every few seconds. 
+The various enemies are taken from the “Level 1 Monster Pack” by PI Entertainment Limited on the Unity Asset Store (PI Entertainment Limited, 2017). From this pack, we chose the slime, bat and ghost models to represent the enemies in-game. There are two different types of enemy scripts, the basic enemy, which simply chases the player and the swooping enemy, which flies at the player at high speed every few seconds. 
 
 <p align="center">
   <img src="Gifs/enemies.png" width="600">
