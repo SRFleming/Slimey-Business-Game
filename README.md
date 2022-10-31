@@ -121,7 +121,7 @@ gave us unappealing results, so we decided to switch our approach and change the
   <em>Figure 2: Procedurally generating map with perlin noise based approach</em>
 </p>
 
-As can be seen in Figure 4, scattering our handmade tiles creates a more repetitive looking environment. Although a limited amount of tiles also 
+As can be seen in Figure 2, scattering our handmade tiles creates a more repetitive looking environment. Although a limited amount of tiles also 
 contributes to this look. 
 
 The algorithm we chose to use randomly generates rays in a predefined area and instantiates a random prefab from a given array on the point of 
@@ -162,7 +162,7 @@ model and rim lighting on lit pixels near the edge of objects.
 </p>
 
 Flattening each pixel's brightness results in a cartoony, almost 2D look as objects are rendered in sections of uniform colour rather than the smooth
-range of colours seen in most lighting models (see figure x). This cartoon style meshed well with our plain colour and low poly assets to create a simple
+range of colours seen in most lighting models (see figure 5). This cartoon style meshed well with our plain colour and low poly assets to create a simple
 and clean aesthetic for our game.
 
 <p align="center">
@@ -175,6 +175,14 @@ The other shader we created was our power-up shader (PowerUp), which we used to 
 around each map. The first component of our shader causes power-ups to expand and contract over time by multiplying each vector in a given object by the
 sine function of time passed.
 
+<p align="center">
+  <img src="Gifs/power_up1.gif" width="200" height="200"/>
+  <img src="Gifs/power_up2.gif" width="200" height="200"/> 
+  <img src="Gifs/power_up3.gif" width="200" height="200"/>
+  <br>
+  <em>Figure 6: Left to right; vertex component, pixel component, finished shader</em>
+</p>
+
 The second component of our powerup shader then applies a plasma effect to each pixel of a power-up by taking a secondary noise texture and offsetting it
 based on the time passed. This noise texture determines the plasma colour's contribution to each pixel's overall colour - the plasma colour itself to
 different values for each type of power-up by the PowerupColour script. Custom shaders can be found at project-2-tony-pizza/Assets/Shaders.
@@ -183,6 +191,12 @@ different values for each type of power-up by the PowerupColour script. Custom s
 
 The primary (marked) particle system we created for our game is for enemy deaths (EnemyDeathAngled). We wanted to provide interesting visual feedback
 rather than having enemies disappear on death and make it more satisfying for the player to defeat enemies.
+
+<p align="center">
+  <img src="Gifs/particle_effect.gif" width="600">
+  <br>
+  <em>Figure 7: Death effect pre script rotation</em>
+</p>
 
 Upon creation, our particle system emits a single burst of particles that slowly shrink over the next second. The particles have been given a 3D cube
 render, collision and gravity. The HealthManager rotates them to fly in the direction of the killing bullet to make them appear like parts of the enemy
