@@ -49,4 +49,4 @@ public class Weapon : MonoBehaviour
     public void Update(){
         currentCooldown -= Time.deltaTime;
     }
-}s
+}
