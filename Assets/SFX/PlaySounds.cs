@@ -10,6 +10,7 @@ public class PlaySounds : MonoBehaviour
     public AudioSource Death;
     public AudioSource EnemyKilled;
     public AudioSource Win;
+    public AudioSource Powerup;
     
     void Awake()
     {
@@ -45,5 +46,9 @@ public class PlaySounds : MonoBehaviour
 
     public void PlayWin() {
         Win.Play ();
+    }
+
+    public void PlayPowerup() {
+        Powerup.Play ();
     }
 }

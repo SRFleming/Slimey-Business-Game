@@ -26,7 +26,7 @@ RenderSettings:
   m_AmbientIntensity: 1
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 879050688}
+  m_SkyboxMaterial: {fileID: 902777086}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -5597,7 +5597,64 @@ MonoBehaviour:
   amount: 70
   minScale: 2
   maxScale: 2
---- !u!21 &879050688
+--- !u!1 &890397715
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 890397716}
+  - component: {fileID: 890397717}
+  m_Layer: 0
+  m_Name: ScatterPowerups
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &890397716
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 890397715}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 101.28953, y: 117.54597, z: -61.685867}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 654203461}
+  - {fileID: 2138026942}
+  - {fileID: 169535380}
+  - {fileID: 831132321}
+  - {fileID: 211335805}
+  - {fileID: 1202051050}
+  m_Father: {fileID: 355456600}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &890397717
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 890397715}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: feb272fda8526498da12d9507532bf89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefabs:
+  - {fileID: 4109374724682398574, guid: 25e1942c9dcdf40cd97004c77bca31f7, type: 3}
+  - {fileID: 1654621790847952290, guid: 661869ed9f82f4adf8685938480c47a4, type: 3}
+  - {fileID: 1631730800433827522, guid: 811e6a7d9ae4e41d7903df54138b24e5, type: 3}
+  amount: 6
+  minScale: 1
+  maxScale: 1
+--- !u!21 &902777086
 Material:
   serializedVersion: 8
   m_ObjectHideFlags: 0
@@ -5947,63 +6004,6 @@ Material:
     - _Vector1: {r: 0, g: 1, b: 1, a: 0}
     - _water: {r: 0.5, g: 0.5, b: 0.5, a: 1}
   m_BuildTextureStacks: []
---- !u!1 &890397715
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 890397716}
-  - component: {fileID: 890397717}
-  m_Layer: 0
-  m_Name: ScatterPowerups
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &890397716
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 890397715}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 101.28953, y: 117.54597, z: -61.685867}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 654203461}
-  - {fileID: 2138026942}
-  - {fileID: 169535380}
-  - {fileID: 831132321}
-  - {fileID: 211335805}
-  - {fileID: 1202051050}
-  m_Father: {fileID: 355456600}
-  m_RootOrder: -1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &890397717
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 890397715}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: feb272fda8526498da12d9507532bf89, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  prefabs:
-  - {fileID: 4109374724682398574, guid: 25e1942c9dcdf40cd97004c77bca31f7, type: 3}
-  - {fileID: 1654621790847952290, guid: 661869ed9f82f4adf8685938480c47a4, type: 3}
-  - {fileID: 1631730800433827522, guid: 811e6a7d9ae4e41d7903df54138b24e5, type: 3}
-  amount: 6
-  minScale: 1
-  maxScale: 1
 --- !u!1001 &920685841
 PrefabInstance:
   m_ObjectHideFlags: 0

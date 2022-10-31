@@ -220,6 +220,7 @@ MonoBehaviour:
   onHealthChanged:
     m_PersistentCalls:
       m_Calls: []
+  Win: {fileID: 0}
   deathEffect: {fileID: 1391671984890573727, guid: 12685901efa57bf42a32c88143fe19e7, type: 3}
   healthBar: {fileID: 0}
 --- !u!114 &2594138936431598750
@@ -234,11 +235,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b53753e8f00b26489848ac4b23f6b85, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minWaitTime: 0.5
-  maxWaitTime: 1
+  minWaitTime: 0.3
+  maxWaitTime: 0.8
   speed: 20
   damage: 40
-  damageCooldown: 0.5
+  damageCooldown: 0.8
   damageTag: Player
 --- !u!1 &1000011867156646
 GameObject:

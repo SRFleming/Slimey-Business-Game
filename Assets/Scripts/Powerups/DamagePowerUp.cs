@@ -5,6 +5,7 @@ using UnityEngine;
 public class DamagePowerUp : MonoBehaviour
 {
     private GameObject HUD;
+    private GameObject PowerupSound;
     public ParticleSystem particles;
 
     private void OnTriggerEnter(Collider col)
@@ -13,6 +14,8 @@ public class DamagePowerUp : MonoBehaviour
         {
             HUD = GameObject.Find("HUD");
             HUD.GetComponent<UIGameStatusText>().DamageUp();
+            PowerupSound = GameObject.Find("Sounds");
+            PowerupSound.GetComponent<PlaySounds>().PlayPowerup();
             Pickup(col.gameObject);
         }
     }

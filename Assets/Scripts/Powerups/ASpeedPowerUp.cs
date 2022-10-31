@@ -6,6 +6,7 @@ using UnityEngine.Events;
 public class ASpeedPowerUp : MonoBehaviour
 {
     private GameObject HUD;
+    private GameObject PowerupSound;
     public ParticleSystem particles;
 
     private void OnTriggerEnter(Collider col)
@@ -14,6 +15,8 @@ public class ASpeedPowerUp : MonoBehaviour
         {
             HUD = GameObject.Find("HUD");
             HUD.GetComponent<UIGameStatusText>().AttackSpeedUp();
+            PowerupSound = GameObject.Find("Sounds");
+            PowerupSound.GetComponent<PlaySounds>().PlayPowerup();
             Pickup(col.gameObject);
         }
     }
